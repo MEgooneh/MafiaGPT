@@ -1,6 +1,6 @@
 # MafiaGPT
 
-a progoram that moderate a [Mafia(Werewolf)](https://en.wikipedia.org/wiki/Mafia_(party_game)) game with 7 players between GPT models.
+a program that moderate a [Mafia(Werewolf)](https://en.wikipedia.org/wiki/Mafia_(party_game)) game with 7 players between GPT models.
 
 to see communication, team work and social/logical abilities of GPT model.(it is fun and educational)
 
@@ -11,7 +11,11 @@ the roles are :
 - 3 Villagers
 - 2 Werewolves
 
-Tasks : 
+## Get started
+
+set your Openai API key as an enivronmental variable with key : OPENAI_API_KEY
+
+## Tasks  
 
 - [ ] optimizing prompts
 - [ ] a web interface to play natively a log-file for fun
