@@ -25,9 +25,11 @@ time_limit_rate = 20
 alives_index = list(range(7))
 
 def game_end() : 
-    if werewolves_cnt == villagers_cnt : 
+    if werewolves_cnt == villagers_cnt :
+        log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
         return "Werewolves Win!"
     if werewolves_cnt == 0 : 
+        log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
         return "Villagers Win!"
     return 0 
 
@@ -57,7 +59,7 @@ ATTENTION :
 !!! You MUST NOT REVEAL your role if it is Medic or Seer. you can claim that you are villager(lie or true) but for example you shouldn't say : "I'm Medic"
 !!! there's no needage to remind rules to others they will see it. just focus on your own game and reason gathering.
 !!! When you are asked to answer "JUST A NUMBER" you should just respond an integer no more details! just a simple integer of a player.
-!!! don't use repeatitive phrases like you are emailing to someone. be short and direct. also be somehow aggressive and start target randomely in round 1 .
+!!! don't use repeatitive phrases. add something to the game.be short and direct. also be somehow aggressive and start target randomely in round 1 .
 Your notepad : 
 every player has a private notepad. in each round (day and night) you can add some notes for yourself to it to remember for next decisions. your notepad will be sent to you at the end of this message.
     - You should be clear and summarise important actions in the game that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
@@ -109,8 +111,8 @@ def day() :
     votes = [0]*7
     for i in alives_index : 
         res = send_message(render_game_intro(i), "Todays report:" + str(report)+ render_game_status() + render_notepad(i) , "Command: just send the number of the player that you want to vote for")
-        log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':int(res)}})
         num = [int(s) for s in res.split() if s.isdigit()][0]
+        log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num}})
         votes[num]+=1
         report.append(f"Player{i} Voted to {num}")
     # Here will be a bug due to probablity of two or more maximum voted.
