@@ -75,6 +75,18 @@ events are :
   'result':"<True: if player is werewolf>"
 }
 ```
+- notetaking :
+```javascript
+'content':{
+  'player':"<player_number>"
+  'context':"<speech_string>"
+}
+```
+- end :
+```javascript
+'content':{
+  'winner':"<Werewolves/Villagers>"
+}
 
 
 ## Tasks  
