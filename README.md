@@ -13,7 +13,69 @@ the roles are :
 
 ## Get started
 
+install openai via pip : 
+```bash
+pip install openai
+```
+
 set your Openai API key as an enivronmental variable with key : OPENAI_API_KEY
+
+run the "game.py"
+
+## log.json format
+
+every event in the game is a dictionary.
+
+```javascript
+{
+  'event':"<event_name>",
+  'content':"<...>"
+}
+```
+
+events are : 
+
+- speech :
+```javascript
+'content':{
+  'player':"<player_number>"
+  'context':"<speech_string>"
+}
+```
+
+- votes :
+```javascript
+'content':{
+  'player':"<player_number>"
+  'voted_to_player':"<player_number>"
+}
+```
+- healed :
+```javascript
+'content':{
+  'player':"<player_number>"
+}
+```
+- targeted :
+```javascript
+'content':{
+  'player':"<player_number>"
+}
+```
+- killed :
+```javascript
+'content':{
+  'player':"<player_number>"
+}
+```
+- inquiry :
+```javascript
+'content':{
+  'player':"<player_number>"
+  'result':"<True: if player is werewolf>"
+}
+```
+
 
 ## Tasks  
 
