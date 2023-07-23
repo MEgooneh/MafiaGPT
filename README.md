@@ -43,7 +43,7 @@ events are :
 }
 ```
 
-- votes :
+- voted :
 ```javascript
 'content':{
   'player':"<player_number>"
@@ -68,7 +68,7 @@ events are :
   'player':"<player_number>"
 }
 ```
-- inquiry :
+- inquiried :
 ```javascript
 'content':{
   'player':"<player_number>"
@@ -80,5 +80,6 @@ events are :
 ## Tasks  
 
 - [ ] optimizing prompts
-- [ ] a web interface to play natively a log-file for fun
+- [ ] a web interface to play natively a log-file as an animation
+- [ ] allowing a player/players to play with GPT (Probably tricky prompts will lead to game hacking.) 
 - [ ] allowing more chat models or different GPT tempretures to compete 
