@@ -24,6 +24,10 @@ token_limit = 4000
 time_limit_rate = 20
 alives_index = list(range(7))
 
+
+# add initial logs : 
+log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in range(7)]
+
 def game_end() : 
     if werewolves_cnt == villagers_cnt :
         log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
@@ -62,6 +66,7 @@ Your notes as your memory and your strategy:
 every player has a private notepad. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notepad will be only your last update and it will override. so try to summarise previous notes in new one too.
     - You should be clear and summarise important actions in the round that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
     - if you have something previously in your notepad that is not usable anymore (e.g about targeting someone that is no more alive) ignore that note and don't add it to new update.
+    - ONLY you can see your notes so you don't talk to others, just create your policies for next rounds. there is no needage to show your innocent. just fix your policy for yourself.
 NOW JUST SEND YOUR NEW VERSION OF NOTES : """
 
 def kill(player_number)  :
