@@ -31,6 +31,7 @@ def game_end() :
     if werewolves_cnt == 0 : 
         log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
         return 1
+    json.dump(log , open('log.json' , 'w'))
     return 0 
 
 def render_game_intro(player_number) : 
