@@ -35,6 +35,14 @@ every event in the game is a dictionary.
 
 events are : 
 
+- roles :
+```javascript
+'content':{
+  'player':"<player_number>"
+  'role':"<role_string>"
+}
+```
+
 - speech :
 ```javascript
 'content':{
