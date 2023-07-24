@@ -89,6 +89,7 @@ Your notepad from previous rounds :
 
 
 def kill(player_number)  :
+    global villagers_cnt , werewolves_cnt
     if 'Werewolf' in players[player_number]['role'] : 
         werewolves_cnt -= 1
     else :
@@ -111,17 +112,17 @@ def day() :
     votes = [0]*7
     for i in alives_index : 
         res = send_message(render_game_intro(i), "Todays report:" + str(report)+ render_game_status() + render_notepad(i) , "Command: just send the number of the player that you want to vote for")
-        num = [int(s) for s in res.split() if s.isdigit()][0]
+        num = int(re.findall(r'\d+', res)[0])
         log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num}})
         votes[num]+=1
         report.append(f"Player{i} Voted to {num}")
     # Here will be a bug due to probablity of two or more maximum voted.
-    dead_index = votes.index(votes.max)
+    dead_index = votes.index(max(votes))
     kill(dead_index)
     for i in alives_index : 
         res = send_message(render_game_intro(i), "Todays report:" + str(report)+ render_game_status() + render_notepad(i) , "based on last day add some notes to your notepad : ")
         log.append({'event' : 'notetaking' , 'content': {'player':i , 'context':res}})
-        players[i]['notes'] += res
+        players[i]['notes'].append(res)
     memory = report
     return
 
@@ -130,11 +131,11 @@ def night() :
     healed_guy = None
     if players[roles.index('Medic')]['is_alive'] == True : 
         res = send_message(render_game_intro(roles.index('Medic')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Medic')) , "Command : send the number of player who you want to heal for tonight.")
-        healed_guy = [int(s) for s in res.split() if s.isdigit()][0]
+        healed_guy = int(re.findall(r'\d+', res)[0])
         log.append({'event' : 'healed' , 'content': {'player':healed_guy}})
     if players[roles.index('Seer')]['is_alive'] == True :     
         res = send_message(render_game_intro(roles.index('Seer')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Seer')) , "Command : send the number of player who you want to know that is werewolf or not for tonight.")
-        inq = [int(s) for s in res.split() if s.isdigit()][0]
+        inq = int(re.findall(r'\d+', res)[0])
         players[roles.index('Seer')]['special_actions_log'].append(f"{inq} is Werewolf? : {'Werewolf' in players[inq]['role']}")
         log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context':'Werewolf' in players[inq]['role']}})
     if players[roles.index('Werewolf_simple')]['is_alive'] == True : 
@@ -142,7 +143,7 @@ def night() :
         log.append({'event' : 'speech' , 'content': {'player': roles.index('Werewolf_simple'), 'context':advice}})
     
     res = send_message(render_game_intro(roles.index('Werewolf_leader')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Werewolf_leader')) , "Command : send the number of player who you want to heal for tonight.")
-    targeted_guy = [int(s) for s in res.split() if s.isdigit()][0]
+    targeted_guy = int(re.findall(r'\d+', res)[0])
     log.append({'event' : 'targeted' , 'content': {'player':targeted_guy}})
     if targeted_guy != healed_guy : 
         kill(targeted_guy)
