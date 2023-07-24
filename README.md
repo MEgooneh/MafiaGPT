@@ -20,6 +20,8 @@ pip install openai
 
 set your Openai API key as an enivronmental variable with key : OPENAI_API_KEY
 
+- you can configure your model(Default is 'gpt-3.5-turbo') and your rate_limit and token_limit in api.py
+
 run the "game.py"
 
 ## log.json format
