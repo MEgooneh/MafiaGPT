@@ -48,18 +48,21 @@ events are :
 'content':{
   'player':"<player_number>"
   'voted_to_player':"<player_number>"
+  'reason':"<complete response>"
 }
 ```
 - healed :
 ```javascript
 'content':{
   'player':"<player_number>"
+  'reason':"<complete response>"
 }
 ```
 - targeted :
 ```javascript
 'content':{
   'player':"<player_number>"
+  'reason':"<complete response>"
 }
 ```
 - killed :
@@ -72,7 +75,8 @@ events are :
 ```javascript
 'content':{
   'player':"<player_number>"
-  'result':"<True: if player is werewolf>"
+  'context':"<True: if player is werewolf>"
+  'reason':"<complete response>"
 }
 ```
 - notetaking :
