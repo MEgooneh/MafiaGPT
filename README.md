@@ -103,6 +103,21 @@ events are :
 }
 ```
 
+## Prompts
+- Game Introduction('/intro_prompt.txt') : rules and the role of the player
+- Game Reports('/report_prompt.txt) :
+    - Speeches in last round
+    - Game status : alive players in seperation of the teams.
+    - Players status : alivness of players based on their number
+    - Agent previous SPEACIAL actions
+    - Agent previous VOTES
+    - Notes that have taken by the agent
+- Commands('/game.py') :
+    - Speak command
+    - Vote command
+    - targetting/healing/killing/inquiring command
+      
+
 ## Tasks  
 
 - [ ] optimizing prompts
