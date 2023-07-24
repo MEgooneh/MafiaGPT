@@ -10,7 +10,7 @@ shuffle(roles)
 
 #Create a players list
 
-players = [{'role' : role , 'is_alive' : True , 'special_actions_log' : [] , 'votes_log' : [] , 'notes' : []} for role in roles]
+players = [{'role' : role , 'is_alive' : True , 'special_actions_log' : [] , 'votes_log' : [] , 'notes' : ""} for role in roles]
 
 # adding essential variables
 
@@ -27,66 +27,41 @@ alives_index = list(range(7))
 def game_end() : 
     if werewolves_cnt == villagers_cnt :
         log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
-        return "Werewolves Win!"
+        return 1
     if werewolves_cnt == 0 : 
         log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
-        return "Villagers Win!"
+        return 1
     return 0 
 
 def render_game_intro(player_number) : 
-    game_intro = f"""
-You are a meticulous agent, you are playing Mafia party game (Werewolf).
-your actions must be reasonable and based on your UTILITY - that
-for Werewolves : 
-    eliminating Villagers and try to confuse them. also showing yourself as villager so they trust you.
-for Villagers : 
-    guess and find werewolves and try to kick them out by gathering vote for them. convince others that you are innocent and trustable.
---------
-we have 7 players from 0 to 6 and you are one of them. 
-roles : 
-    Villagers:
-        - 3 Villager_simple : no special ability, just try to guess werewolves and vote them and share ideas with others. finding teammates and prove that it's not werewolf.
-        - 1 Medic : at nights will send a player number which wants to heal. e.g if he heal player number X and mafia target X at night, X will remain in game.
-        - 1 Seer : at nights will ask moderator a player number and moderator will say that number is werewolf(True) or not(False). then he should undirectly tell this to others.(Shouldn't say "i am the Seer" i know he is werewolf) 
-    Werewolves:
-        - Werewolf_Leader : will make last decision at nights with considering the advice of Werewolf_simple for eliminating a player from the game.
-        - Werewolf_simple : try to help Werewolf_leader to make Villagers confused. 
-game logics : 
-    - You are trying to convince other players that you are a village - whether or not you really are. They need to genuinely believe your statement. 
-    - You should target directly some players with saying their numbers. if you are Villager and you believe someone is lying you should try to eliminate him by gathering others to vote for him.
-    - You should be clear and direct and take in to account all notes you have taken before about the game and change your guesses if it's needed.
-ATTENTION : 
+    io = open('intro_prompt.txt' , 'r')
+    return eval(io.read())
+
+def string_aliveness(player_number) : 
+    if players[player_number]['is_alive'] == True : 
+        return "ALIVE"
+    else :
+        return "DEAD"
+
+def render_game_report(player_number , report) :
+    aliveness = [f"Player {i} : " + string_aliveness(i) for i in range(7)] 
+    io = open('report_prompt.txt','r')
+    return eval(io.read())
+
+def render_speech_command() : 
+    return """ATTENTION : 
 !!! You MUST NOT REVEAL your role if it is Medic or Seer. you can claim that you are villager(lie or true) but for example you shouldn't say : "I'm Medic"
-!!! there's no needage to remind rules to others they will see it. just focus on your own game and reason gathering.
-!!! When you are asked to answer "JUST A NUMBER" you should just respond an integer no more details! just a simple integer of a player.
-!!! don't use repeatitive phrases. add something to the game.be short and direct. also be somehow aggressive and start target randomely in round 1 .
-Your notepad : 
-every player has a private notepad. in each round (day and night) you can add some notes for yourself to it to remember for next decisions. your notepad will be sent to you at the end of this message.
-    - You should be clear and summarise important actions in the game that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
---------
-Your information : 
-You are player number : {player_number}
-Your role is : {players[player_number]['role']}"""
-    return game_intro
+!!! there's no needage to remind rules to others. just focus on your own game and don't repeat things.
+!!! don't use repeatitive phrases. add something to the game. be short and direct. also be somehow aggressive and start target randomely in round 1 .
+NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
 
-def render_game_status() :
-    s = [{i : players[i]['is_alive']} for i in range(7)] 
-    return f"""########
-Game status : 
-we are at round : {rounds_cnt}
-alive werewolves : {werewolves_cnt}
-alive Villagers : {villagers_cnt}
-Players is_alive status : 
-{s}
-########"""
-
-def render_notepad(player_number) : 
+def render_notetaking_command(player_number) : 
     return f"""
-Your notepad from previous rounds : 
-{players[player_number]['notes']}""" + str(players[player_number]['special_actions_log'])
-
-
-
+Your notes as your memory and your strategy: 
+every player has a private notepad. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notepad will be only your last update and it will override. so try to summarise previous notes in new one too.
+    - You should be clear and summarise important actions in the round that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
+    - if you have something previously in your notepad that is not usable anymore (e.g about targeting someone that is no more alive) ignore that note and don't add it to new update.
+NOW JUST SEND YOUR NEW VERSION OF NOTES : """
 
 def kill(player_number)  :
     global villagers_cnt , werewolves_cnt
@@ -105,24 +80,26 @@ memory = []
 def day() :
     report = [] 
     for i in alives_index :
-        res = send_message(render_game_intro(i), "Todays report:" + str(report) + render_game_status() + render_notepad(i) , "Command: it's your turn to speak")
+        res = send_message(render_game_intro(i), render_game_report(i , report) , render_speech_command())
         report.append(f"""Player {i} : 
 {res}""")
         log.append({'event' : 'speech' , 'content': {'player':i , 'context':res}})
     votes = [0]*7
     for i in alives_index : 
-        res = send_message(render_game_intro(i), "Todays report:" + str(report)+ render_game_status() + render_notepad(i) , "Command: just send the number of the player that you want to vote for")
+        res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number")
         num = int(re.findall(r'\d+', res)[0])
-        log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num}})
+        log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num , 'reason':res}})
         votes[num]+=1
         report.append(f"Player{i} Voted to {num}")
+        players[i]['votes_log'].append(f"Player {i}")
     # Here will be a bug due to probablity of two or more maximum voted.
-    dead_index = votes.index(max(votes))
-    kill(dead_index)
+    if max(votes) > 2 : 
+        dead_index = votes.index(max(votes))
+        kill(dead_index)
     for i in alives_index : 
-        res = send_message(render_game_intro(i), "Todays report:" + str(report)+ render_game_status() + render_notepad(i) , "based on last day add some notes to your notepad : ")
+        res = send_message(render_game_intro(i), render_game_report(i , report), render_notetaking_command(i))
         log.append({'event' : 'notetaking' , 'content': {'player':i , 'context':res}})
-        players[i]['notes'].append(res)
+        players[i]['notes'] = (res)
     memory = report
     return
 
@@ -130,21 +107,24 @@ def night() :
     report = memory
     healed_guy = None
     if players[roles.index('Medic')]['is_alive'] == True : 
-        res = send_message(render_game_intro(roles.index('Medic')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Medic')) , "Command : send the number of player who you want to heal for tonight.")
+        res = send_message(render_game_intro(roles.index('Medic')), render_game_report(roles.index('Medic') , report) , "Command : send the number of player who you want to heal for tonight. REMINDER: you must send an alive player number")
         healed_guy = int(re.findall(r'\d+', res)[0])
-        log.append({'event' : 'healed' , 'content': {'player':healed_guy}})
+        players[roles.index('Medic')]['special_actions_log'].append(f"You have healed Player number {healed_guy}")
+        log.append({'event' : 'healed' , 'content': {'player':healed_guy , 'reason':res}})
     if players[roles.index('Seer')]['is_alive'] == True :     
-        res = send_message(render_game_intro(roles.index('Seer')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Seer')) , "Command : send the number of player who you want to know that is werewolf or not for tonight.")
+        res = send_message(render_game_intro(roles.index('Seer')), render_game_report(roles.index('Seer'), report) , "Command : send the number of player who you want to know that is werewolf or not for tonight. REMINDER: you must send an alive player number")
         inq = int(re.findall(r'\d+', res)[0])
+        players[roles.index('Seer')]['special_actions_log'].append(f"You asked moderator that Player {inq} is Werewolf or not. the answer was : {'Werewolf' in players[inq]['role']}")
         players[roles.index('Seer')]['special_actions_log'].append(f"{inq} is Werewolf? : {'Werewolf' in players[inq]['role']}")
-        log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context':'Werewolf' in players[inq]['role']}})
+        log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context':'Werewolf' in players[inq]['role'] , 'reason':res}})
     if players[roles.index('Werewolf_simple')]['is_alive'] == True : 
-        advice = send_message(render_game_intro(roles.index('Werewolf_simple')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Werewolf_simple')) , "Command : send a short advice to Werewolf_leader to which player for eliminating for tonight")
+        advice = send_message(render_game_intro(roles.index('Werewolf_simple')), render_game_report(roles.index('Werewolf_simple') , report) , "Command : send a short advice to Werewolf_leader to which player for eliminating for tonight")
         log.append({'event' : 'speech' , 'content': {'player': roles.index('Werewolf_simple'), 'context':advice}})
     
-    res = send_message(render_game_intro(roles.index('Werewolf_leader')), "Todays report:" + str(report)+ render_game_status() + render_notepad(roles.index('Werewolf_leader')) , "Command : send the number of player who you want to heal for tonight.")
+    res = send_message(render_game_intro(roles.index('Werewolf_leader')), render_game_report(roles.index('Werewolf_leader') , report) , "Command : JUST send the number of player who you want to heal for tonight. REMINDER: you must send an alive player number")
     targeted_guy = int(re.findall(r'\d+', res)[0])
-    log.append({'event' : 'targeted' , 'content': {'player':targeted_guy}})
+    log.append({'event' : 'targeted' , 'content': {'player':targeted_guy , 'reason':res}})
+    players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"You have attemped to kill Player number {targeted_guy} at night.")
     if targeted_guy != healed_guy : 
         kill(targeted_guy)
     return

@@ -1,0 +1,21 @@
+f"""This Round speeches till now :
+############## 
+{str(report)}
+##############
+GAME STATUS NOW : 
+    - alive werewolves : {werewolves_cnt}
+    - alive Villagers : {villagers_cnt}
+##############
+Players Status : 
+    - {aliveness}
+    - so alive players are : {alives_index}
+##############
+YOUR PREVIOUS ACTIONS in previous rounds in order of rounds : 
+    - {players[player_number]['special_actions_log']}
+##############
+YOUR PREVIOUS VOTES in previous rounds in order of rounds : 
+    - {players[player_number]['votes_log']}
+##############
+YOUR PREVIOUS NOTE for yourself : 
+    - {players[player_number]['notes']}
+##############"""
