@@ -31,11 +31,12 @@ log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in r
 def game_end() : 
     if werewolves_cnt == villagers_cnt :
         log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
+        json.dump(log , open('log.json' , 'w'))
         return 1
     if werewolves_cnt == 0 : 
         log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
+        json.dump(log , open('log.json' , 'w'))
         return 1
-    json.dump(log , open('log.json' , 'w'))
     return 0 
 
 def render_game_intro(player_number) : 
