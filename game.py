@@ -8,27 +8,27 @@ roles = ['Medic', 'Seer', 'Villager_simple', 'Villager_simple', 'Villager_simple
 
 shuffle(roles)
 
-#Create a players list
+#Create the players list
 
 players = [{'role' : role , 'is_alive' : True , 'special_actions_log' : [] , 'votes_log' : [] , 'notes' : ""} for role in roles]
 
 # adding essential variables
 
-
-log = []
-game_summary = []
-rounds_cnt = 0
-werewolves_cnt = 2
-villagers_cnt = 5
-token_limit = 4000
-time_limit_rate = 20
-alives_index = list(range(7))
+log = [] #it will keep all logs and then dump it to 'log.json'
+werewolves_cnt = 2 #alive werewolves counter
+villagers_cnt = 5 #alive villagers counter
+alives_index = list(range(7)) # a list consisting of alive players number
 
 
-# add initial logs : 
+# add players and their roles to log : 
 log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in range(7)]
 
-def game_end() : 
+
+#
+def game_end() :
+    """
+     Will check that the game is over or not. 1 if it's over 0 otherwise
+    """ 
     if werewolves_cnt == villagers_cnt :
         log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
         json.dump(log , open('log.json' , 'w'))
@@ -40,19 +40,35 @@ def game_end() :
     return 0 
 
 def render_game_intro(player_number) : 
+    """
+    Rendering game intro (The first message in every request to api) 
+    consisting of the rules and the player information
+    
+    """
     io = open('intro_prompt.txt' , 'r')
     return eval(io.read())
 
 def string_aliveness(player_number) : 
+    """
+    Showing the aliveness of players in better format for "render_game_report" function
+    
+    """
     if players[player_number]['is_alive'] == True : 
         return "ALIVE"
     else :
         return "DEAD"
-
+ 
 def render_game_report(player_number , report) :
+    """
+    Rendering game report (The second message in every request to api) 
+    consisting of game status and the player special informations and what happened in the game till now
+    
+    """
     aliveness = [f"Player {i} : " + string_aliveness(i) for i in range(7)] 
     io = open('report_prompt.txt','r')
     return eval(io.read())
+
+# a simple string to command player to speak
 
 def render_speech_command() : 
     return """ATTENTION : 
@@ -60,6 +76,8 @@ def render_speech_command() :
 !!! there's no needage to remind rules to others. just focus on your own game and don't repeat things.
 !!! don't use repeatitive phrases. add something to the game. be short and direct. also be somehow aggressive and start target randomely in round 1 .
 NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
+
+# a simple string to command player to take a note of the game
 
 def render_notetaking_command(player_number) : 
     return f"""
@@ -70,7 +88,11 @@ every player has a private notepad. in each round (day and night) you can update
     - ONLY you can see your notes so you don't talk to others, just create your policies for next rounds. there is no needage to show your innocent. just fix your policy for yourself.
 NOW JUST SEND YOUR NEW VERSION OF NOTES : """
 
+
 def kill(player_number)  :
+    """
+    Will delete information of a player who has eliminated from the game.
+    """
     global villagers_cnt , werewolves_cnt
     if 'Werewolf' in players[player_number]['role'] : 
         werewolves_cnt -= 1
@@ -80,9 +102,11 @@ def kill(player_number)  :
     players[player_number]['is_alive'] = False
     log.append({'event' : 'killed' , 'content': {'player':player_number}})
 
-
+# a temproray memory to have day's game report for night.
 memory = []
-# game functions 
+
+############
+# game main functions 
 
 def day() :
     report = [] 
@@ -136,6 +160,7 @@ def night() :
         kill(targeted_guy)
     return
 
+# main game loop
 
 while game_end() == 0 : 
     rounds_cnt += 1
