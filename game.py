@@ -94,7 +94,7 @@ def kill(player_number)  :
     Will delete information of a player who has eliminated from the game.
     """
     global villagers_cnt , werewolves_cnt
-    if 'Werewolf' in players[player_number]['role'] : 
+    if 'Werewolf' in roles[player_number] : 
         werewolves_cnt -= 1
     else :
         villagers_cnt -= 1
@@ -145,9 +145,10 @@ def night() :
     if players[roles.index('Seer')]['is_alive'] == True :     
         res = send_message(render_game_intro(roles.index('Seer')), render_game_report(roles.index('Seer'), report) , "Command : send the number of player who you want to know that is werewolf or not for tonight. REMINDER: you must send an alive player number")
         inq = int(re.findall(r'\d+', res)[0])
-        players[roles.index('Seer')]['special_actions_log'].append(f"You asked moderator that Player {inq} is Werewolf or not. the answer was : {'Werewolf' in players[inq]['role']}")
-        players[roles.index('Seer')]['special_actions_log'].append(f"{inq} is Werewolf? : {'Werewolf' in players[inq]['role']}")
-        log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context':'Werewolf' in players[inq]['role'] , 'reason':res}})
+        is_werewolf = 'Werewolf' in roles[inq]
+        players[roles.index('Seer')]['special_actions_log'].append(f"You asked moderator that Player {inq} is Werewolf or not. the answer was : {is_werewolf}")
+        players[roles.index('Seer')]['special_actions_log'].append(f"{inq} is Werewolf? : {is_werewolf}")
+        log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context': is_werewolf , 'reason':res}})
     if players[roles.index('Werewolf_simple')]['is_alive'] == True : 
         advice = send_message(render_game_intro(roles.index('Werewolf_simple')), render_game_report(roles.index('Werewolf_simple') , report) , "Command : send a short advice to Werewolf_leader to which player for eliminating for tonight")
         log.append({'event' : 'speech' , 'content': {'player': roles.index('Werewolf_simple'), 'context':advice}})
@@ -163,7 +164,6 @@ def night() :
 # main game loop
 
 while game_end() == 0 : 
-    rounds_cnt += 1
     day()
     json.dump(log , open('log.json' , 'w'))
     if game_end() != 0 : 
