@@ -20,6 +20,11 @@ villagers_cnt = 5 #alive villagers counter
 alives_index = list(range(7)) # a list consisting of alive players number
 
 
+# let Werewolves to know their teammates
+players[roles.index('Werewolf_simple')]['special_actions_log'].append(f"Werewolf_leader .aka your teammate is Player {roles.index('Werewolf_leader')}")
+players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"Werewolf_simple .aka your teammate is Player {roles.index('Werewolf_simple')}")
+
+
 # add players and their roles to log : 
 log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in range(7)]
 
@@ -118,15 +123,19 @@ def day() :
     votes = [0]*7
     for i in alives_index : 
         res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number")
-        num = int(re.findall(r'\d+', res)[0])
-        log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num , 'reason':res}})
-        votes[num]+=1
-        report.append(f"Player{i} Voted to {num}")
-        players[i]['votes_log'].append(f"Player {i}")
+        nums_in_res = re.findall(r'\d+', res)
+        if len(nums_in_res) > 0 :
+            num = int(nums_in_res[0]) 
+            log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num , 'reason':res}})
+            votes[num]+=1
+            report.append(f"Player{i} Voted to {num}")
+            players[i]['votes_log'].append(f"Player {i}")
     # Here will be a bug due to probablity of two or more maximum voted.
     if max(votes) > 2 : 
         dead_index = votes.index(max(votes))
         kill(dead_index)
+        if game_end() == 1 : # to check if game is over by votes 
+            return
     for i in alives_index : 
         res = send_message(render_game_intro(i), render_game_report(i , report), render_notetaking_command(i))
         log.append({'event' : 'notetaking' , 'content': {'player':i , 'context':res}})

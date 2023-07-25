@@ -10,7 +10,7 @@ Players Status :
     - {aliveness}
     - so alive players are : {alives_index}
 ##############
-YOUR PREVIOUS ACTIONS in previous rounds in order of rounds : 
+YOU MUST CONSIDER this important details : 
     - {players[player_number]['special_actions_log']}
 ##############
 YOUR PREVIOUS VOTES in previous rounds in order of rounds : 
