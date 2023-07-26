@@ -85,7 +85,7 @@ NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
 # a simple string to command player to take a note of the game
 
 def render_notetaking_command(player_number) : 
-    return f"""
+    return """
 Your notes as your memory and your strategy: 
 every player has a private notepad. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notepad will be only your last update and it will override. so try to summarise previous notes in new one too.
     - You should be clear and summarise important actions in the round that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
@@ -131,7 +131,7 @@ def day() :
             report.append(f"Player{i} Voted to {num}")
             players[i]['votes_log'].append(f"Player {i}")
     # Here will be a bug due to probablity of two or more maximum voted.
-    if max(votes) > 2 : 
+    if max(votes) > 1 : 
         dead_index = votes.index(max(votes))
         kill(dead_index)
         if game_end() == 1 : # to check if game is over by votes 
@@ -162,7 +162,7 @@ def night() :
         advice = send_message(render_game_intro(roles.index('Werewolf_simple')), render_game_report(roles.index('Werewolf_simple') , report) , "Command : send a short advice to Werewolf_leader to which player for eliminating for tonight")
         log.append({'event' : 'speech' , 'content': {'player': roles.index('Werewolf_simple'), 'context':advice}})
     
-    res = send_message(render_game_intro(roles.index('Werewolf_leader')), render_game_report(roles.index('Werewolf_leader') , report) , "Command : JUST send the number of player who you want to heal for tonight. REMINDER: you must send an alive player number")
+    res = send_message(render_game_intro(roles.index('Werewolf_leader')), render_game_report(roles.index('Werewolf_leader') , report) , "Command : JUST send the number of player who you want to kill for tonight. REMINDER: you must send an alive player number")
     targeted_guy = int(re.findall(r'\d+', res)[0])
     log.append({'event' : 'targeted' , 'content': {'player':targeted_guy , 'reason':res}})
     players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"You have attemped to kill Player number {targeted_guy} at night.")
