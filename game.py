@@ -28,19 +28,20 @@ players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"Werewolf
 # add players and their roles to log : 
 log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in range(7)]
 
+#logging function
+logging = lambda : json.dump(log , open('log.json' , 'w' , indent=4))
 
-#
 def game_end() :
     """
      Will check that the game is over or not. 1 if it's over 0 otherwise
     """ 
     if werewolves_cnt == villagers_cnt :
         log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
-        json.dump(log , open('log.json' , 'w'))
+        logging()
         return 1
     if werewolves_cnt == 0 : 
         log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
-        json.dump(log , open('log.json' , 'w'))
+        logging()
         return 1
     return 0 
 
@@ -174,11 +175,11 @@ def night() :
 
 while game_end() == 0 : 
     day()
-    json.dump(log , open('log.json' , 'w'))
+    logging()
     if game_end() != 0 : 
         break
     night()
-    json.dump(log , open('log.json' , 'w'))
+    logging()
 
 
 
