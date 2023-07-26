@@ -29,7 +29,7 @@ players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"Werewolf
 log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in range(7)]
 
 #logging function
-logging = lambda : json.dump(log , open('log.json' , 'w' , indent=4))
+logging = lambda : json.dump(log , open('log.json' , 'w') , indent=4)
 
 def game_end() :
     """
