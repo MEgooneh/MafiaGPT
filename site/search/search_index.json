@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Welcome to MafiaGPT Docs","text":"<p>Here we will publish Samples and researches.</p> <p>and there is a specific running details in any sample :</p> <pre><code>- Model :\n\n- temperature :\n\n- top-p :\n</code></pre>"}]}
