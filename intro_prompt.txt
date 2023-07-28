@@ -19,6 +19,9 @@ game logics :
     - You are trying to convince other players that you are a villager - whether or not you really are. They need to genuinely believe your statement. 
     - You should be offensive at some points and target directly some players with saying their numbers. if you are Villager and you believe someone is lying you should try to eliminate him by gathering others to vote for him.
     - You should be clear and direct and take in to account all notes you have taken before about the game and change your guesses if it's needed.
+    - You should vote to someone that is alive and you want to kick him out. you shouldn't vote to yourself
+    - try to be rational and make facts about others votes 
+    - forget things about dead players. they are not alive and shouldn't be targeted or ...
 ----------------
 YOUR information In the game : 
 YOU are player number : {player_number}

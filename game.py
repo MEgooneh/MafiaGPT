@@ -37,8 +37,10 @@ def game_end() :
     """ 
     ans = 0 
     if werewolves_cnt == villagers_cnt :
+        log.append({'event':'end','winner':'Werewolves'})
         ans = 1 
     if werewolves_cnt == 0 : 
+        log.append({'event':'end','winner':'Villagers'})
         ans = 1
     logging()
     return ans 
@@ -69,6 +71,7 @@ def render_game_report(player_number , report) :
     
     """
     aliveness = [f"Player {i} : " + string_aliveness(i) for i in range(7)] 
+    dead_players = [f"Player {i} was : {players[i]['role']}" for i in set(range(7))-set(alives_index)]
     io = open('report_prompt.txt','r')
     return eval(io.read())
 
@@ -122,7 +125,7 @@ def day() :
     votes = [0]*7
     log.append({'event':'vote_start'})
     for i in alives_index : 
-        res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number")
+        res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number. You must not vote to yourself")
         nums_in_res = re.findall(r'\d+', res)
         if len(nums_in_res) > 0 :
             num = int(nums_in_res[0]) 

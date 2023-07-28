@@ -1,5 +1,5 @@
 # CONFIG YOUR API HERE : 
-RATE_LIMIT = 22 # sleeping time for openai per minute limitation
+RATE_LIMIT = 20 # sleeping time for openai per minute limitation
 TOKEN_LIMIT = 5000 # token limit per message
 MODEL = 'gpt-3.5-turbo'
 

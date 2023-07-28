@@ -11,6 +11,11 @@ roles = {}
 
 text = ""
 
+def emojing_roles(role) : 
+    roles = ['Medic', 'Seer', 'Villager_simple', 'Villager_simple', 'Villager_simple', 'Werewolf_leader', 'Werewolf_simple']
+    roles_emoji = ['🩺','🔍','👤','👤','👤','😈','😈']
+    return role + roles_emoji[roles.index(role)]
+
 def results(votes) :
     s = ""
     for i in range(7) : 
@@ -27,9 +32,9 @@ for i in log :
     if 'content' in i.keys() : 
         content = i['content']
     if event == 'roles' : 
-        roles[content['player']] = content['role']
+        roles[content['player']] = emojing_roles(content['role'])
         text += f"""
-Player *{content['player']}* is *{content['role']}*
+Player *{content['player']}* is *{emojing_roles(content['role'])}*
 """
     elif event == 'cycle' : 
         text += f"""
@@ -80,7 +85,7 @@ Reason :
 """
     elif event == 'killed' : 
        text += f"""
-*{content['player']}* ({roles[content['player']]}) is DEAD!
+*{content['player']}* ({roles[content['player']]}) is DEAD! 💀
 """
     elif event == 'inquiried' : 
         text += f"""
@@ -97,13 +102,13 @@ Answer :
     elif event == 'notetaking' : 
         s = new_lines_quote(content['context'])
         text +=  f"""
-**Player {content['player']}** ({roles[content['player']]}) is taking note for himself : 
+**Player {content['player']}** ({roles[content['player']]}) is taking note for himself :  📝
 
 > {s}
 """
     elif event == 'end' : 
         text += f"""
-# Game is over! and the winner is **{content['winner']}**
+# Game is over! and the winner is **{i['winner']}**
 """
     text += """
 ---

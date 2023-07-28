@@ -9,6 +9,7 @@ GAME STATUS NOW :
 Players Status : 
     - {aliveness}
     - so alive players are : {alives_index}
+    - Dead players status : {dead_players}
 ##############
 YOU MUST CONSIDER this important details. They are 100% True and you can use them : 
     - {players[player_number]['special_actions_log']}
