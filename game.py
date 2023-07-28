@@ -122,6 +122,7 @@ def day() :
 {res}""")
         log.append({'event' : 'speech' , 'content': {'player':i , 'context':res}})
     votes = [0]*7
+    log.append({'event':'vote_start'})
     for i in alives_index : 
         res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number")
         nums_in_res = re.findall(r'\d+', res)
@@ -132,6 +133,8 @@ def day() :
             report.append(f"Player {i} Voted to {num}")
             players[i]['votes_log'].append(f"Player {num}")
     # Here will be a bug due to probablity of two or more maximum voted.
+    log.append({'event':'vote_results' , 'content' : votes})
+    log.append({'event':'vote_end'})
     if max(votes) > 1 : 
         dead_index = votes.index(max(votes))
         kill(dead_index)
@@ -174,9 +177,11 @@ def night() :
 # main game loop
 
 while game_end() == 0 : 
+    log.append({'event' : 'cycle' , 'content':'day'})
     day()
     if game_end() != 0 : 
         break
+    log.append({'event' : 'cycle' , 'content':'night'})
     night()
 
 
