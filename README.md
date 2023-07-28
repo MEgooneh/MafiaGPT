@@ -45,6 +45,11 @@ events are :
 }
 ```
 
+- cycle :
+```javascript
+'content':"<day/night>"
+```
+
 - speech :
 ```javascript
 'content':{
