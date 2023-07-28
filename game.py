@@ -37,10 +37,8 @@ def game_end() :
     """ 
     ans = 0 
     if werewolves_cnt == villagers_cnt :
-        log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
         ans = 1 
     if werewolves_cnt == 0 : 
-        log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
         ans = 1
     logging()
     return ans 
