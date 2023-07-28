@@ -1,0 +1,6 @@
+site_name: MafiaGPT
+theme: 
+  name: material
+  features:
+    - navigation.expand
+repo_url: https://github.com/MEgooneh/MafiaGPT

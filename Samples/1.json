@@ -1,0 +1,494 @@
+[
+    {
+        "event": "roles",
+        "content": {
+            "player": 0,
+            "role": "Villager_simple"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 1,
+            "role": "Werewolf_simple"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 2,
+            "role": "Villager_simple"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 3,
+            "role": "Werewolf_leader"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 4,
+            "role": "Villager_simple"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 5,
+            "role": "Medic"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 6,
+            "role": "Seer"
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "day"
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 0,
+            "context": "Hey everyone! It's been an intense game so far, and I think it's time we start analyzing the situation and making some moves. As a villager, my main goal is to locate and eliminate the werewolves among us.\n\nI want to remind you all that we currently have 2 alive werewolves and 5 alive villagers. Our numbers are dwindling, and we need to act fast if we want to survive.\n\nI believe it's important for us to share any information or suspicions we have. So, let's start by discussing any observations or thoughts we might have regarding the game. \n\nPersonally, I've been listening carefully to all the speeches and conversations so far, and I've noticed some patterns and suspicious behaviors. I have my eye on a few players, but I won't divulge their numbers just yet. I'd like to hear from all of you first, and maybe we can come to a consensus together.\n\nRemember, our strength lies in unity and collaboration. If we stand together, we can root out these werewolves and ensure our victory. So, let's openly share and discuss our ideas and suspicions. We won't get anywhere if we stay silent."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 1,
+            "context": "Everyone, it's time to take action and start eliminating the werewolves. As a villager, my main goal is to locate and vote out those who are guilty. We currently have 2 alive werewolves and 5 alive villagers, so the odds are against us. \n\nI have been observing the conversations and behaviors of all players, and there are a few individuals that have raised my suspicions. While I won't reveal their numbers just yet, I urge all of you to share your ideas and suspicions openly. \n\nIt's crucial that we work together and collaborate in order to find the true identities of the werewolves. We won't get anywhere if we don't voice our concerns and make informed decisions. \n\nLet's start the discussion now and kick out those who we suspect. Remember, our victory depends on our unity."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 2,
+            "context": "Hey everyone!\n\nIt's crunch time and we need to start taking action. As a villager, my objective is to identify and eliminate the werewolves among us. We have 2 werewolves and 5 villagers left, so our numbers are decreasing rapidly.\n\nI've been closely observing the conversations and behaviors of each player, and I have some suspicions about a few individuals. However, I won't reveal their numbers just yet. I want to hear your ideas and suspicions first. \n\nLet's come together and discuss openly. We need to gather as much information as possible so that we can make informed decisions. Remember, we are stronger when we collaborate and trust each other. \n\nLet's start the discussion now and work towards identifying and voting out the werewolves. Our success depends on our unity."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 3,
+            "context": "Alright everyone, it's clear that we need to start making some moves and eliminate the werewolves among us. As a concerned villager, I have been carefully observing the actions and conversations of each player, and I must say, I have my suspicions about a few individuals. However, I won't reveal their numbers just yet. I'm keen on hearing all your thoughts and suspicions first.\n\nWe all know that collaboration and unity are key in this game. We must stand together and be proactive in finding the true identities of the werewolves. It's crucial that we voice our concerns openly and work towards making informed decisions.\n\nNow, I want to bring to your attention that one player in particular has exhibited some suspicious behaviors. I won't mention any names yet, but their actions definitely raise some red flags. I encourage everyone to speak up and share your observations, as it will greatly assist us in our mission to identify and vote out the werewolves.\n\nRemember, our united effort is what will lead us to victory. Let's begin the discussion and make sure no werewolf slips through our grasps."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 4,
+            "context": "Player 0, Player 1, Player 2, Player 3, Player 5, and Player 6. Listen up!\n\nIt's time to take action and start eliminating the werewolves among us. We are already outnumbered, and if we don't act quickly, we will fall into the hands of the deceitful creatures. \n\nI've been observing each and every one of you closely, and I have my suspicions about certain individuals. I won't reveal any names just yet, but I urge you all to share your thoughts and suspicions openly. \n\nRemember, time is running out, and our unity is our only chance at surviving. Let's come together and make informed decisions based on the information we have. \n\nSo, speak up and let us know who you think is hiding behind a mask of innocence. We cannot afford to falter."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 5,
+            "context": "Everyone, we need to start taking action now. We cannot afford to waste any more time. I have been observing all of you closely, and I have my suspicions about certain individuals.\n\nPlayer 3, your actions have raised some red flags and I believe you may be working with the werewolves. I urge everyone to share their thoughts and suspicions openly so that we can identify and vote out the true culprits.\n\nRemember, our unity and collaboration are crucial in this game. Let's work together to ensure that no werewolf slips through our grasp. We must be proactive and make informed decisions based on the information we have. Time is running out, so let's not hesitate any longer."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 6,
+            "context": "Attention, fellow players! It is vital that we act swiftly and decisively to root out the werewolves among us. Rumors and suspicions are not enough - we need concrete evidence to make informed decisions. \n\nI have taken it upon myself to gather information and observe your actions. While I won't name any individuals at this point, I invite all of you to openly share your thoughts and suspicions. Let us collectively expose the deceit of the werewolves and bring them to justice.\n\nWe must be proactive in unveiling the true identities of these crafty creatures. Time is of the essence, and we cannot afford to waste any more opportunities to save ourselves and protect our village. May the light guide our path as we purge the darkness from our midst."
+        }
+    },
+    {
+        "event": "vote_start"
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 0,
+            "voted_to_player": 3,
+            "reason": "I want to vote for player number 3. I believe their actions have raised some suspicions and they may be working with the werewolves. It's important that we act quickly and eliminate any potential threats to our survival."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 1,
+            "voted_to_player": 5,
+            "reason": "I will gather information and observe the actions of the other players before making my decision. I will carefully consider the suspicions raised by Player 5 regarding Player 3's actions. While it may be tempting to vote for Player 3, I should also evaluate other players and gather more evidence before making my final decision.\n\nAt this point, I will not vote for anyone yet. I will continue observing and gathering information in order to make a more informed decision in the next round."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 2,
+            "voted_to_player": 5,
+            "reason": "I believe we should vote to eliminate player 5 from the game. They have expressed suspicions about player 3 without providing any concrete evidence. This may be a tactic employed by the werewolves to divert attention away from themselves.\n\nAdditionally, player 6's statement about needing concrete evidence before making a decision aligns with my own thoughts. We should not jump to conclusions without solid proof.\n\nLet's gather the votes to eliminate player 5 and discuss any other suspicions or observations we may have."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 3,
+            "voted_to_player": 5,
+            "reason": "I am going to vote for Player 5. Based on the information we have gathered so far, there have been suspicions raised against Player 5, and their actions have been questionable. It is important that we act swiftly and decisively to root out the werewolves among us."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 4,
+            "voted_to_player": 5,
+            "reason": "I have observed the discussions and suspicions so far, and I believe there could be some validity to Player 5's accusations against Player 3. However, I would like to hear from both Player 3 and Player 5 in order to gather more information. \n\nBased on my observations and the given circumstances, I am inclined to vote for Player 5. Although their accusations may be valid, it can also be a ploy to divert attention from themselves and gain trust. Any further information or evidence provided by Player 5 may help us make a more informed decision.\n\nTherefore, I vote for Player 5."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 5,
+            "voted_to_player": 5,
+            "reason": "I vote to eliminate Player 5."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 6,
+            "voted_to_player": 5,
+            "reason": "I have carefully observed each player's actions and words so far. Based on the information I have gathered, I believe that Player 5 may be hiding behind a mask of innocence. They have consistently displayed suspicious behavior, and their actions have raised red flags.\n\nTherefore, my vote goes to **Player 5**. I urge my fellow villagers to consider the evidence and make an informed decision. We cannot afford to let any werewolves slip through our grasp. Together, let us protect our village and uncover the truth."
+        }
+    },
+    {
+        "event": "vote_results",
+        "content": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            6,
+            0
+        ]
+    },
+    {
+        "event": "vote_end"
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 5
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 0,
+            "context": "Player 5, who was accused by multiple players, has been revealed as a werewolf. This confirms my suspicion and validates the votes towards Player 5. We should continue to remain vigilant and observe the remaining players closely for any suspicious behavior or inconsistencies in their actions. Unity and collaboration are vital in our quest to eliminate the werewolves among us. Let's maintain open communication and continue sharing our thoughts and suspicions to ensure our village's survival."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 1,
+            "context": "- Player 3, who is the Werewolf Leader, was revealed as my teammate.\n- Suspicion has been cast on Player 5 by multiple players.\n- Unity and collaboration are crucial for survival.\n- Concrete evidence is necessary to make informed decisions.\n- Time is running out, and we must act swiftly.\n- We need to work together to identify and vote out the true culprits.\n- Let's maintain focus and continue observing others' actions."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 2,
+            "context": "In the previous round, the majority of players voted for Player 5. Player 5 has been eliminated and revealed to be a Villager. This means that there are still 2 alive werewolves among us. \n\nBased on the previous rounds' discussions and suspicions, Player 3 has been pointed out as a possible collaborator with the werewolves. It is worth considering this information in the coming rounds.\n\nMoving forward, we need to actively gather information and evidence to make informed decisions. Unity and collaboration are crucial to root out the remaining werewolves and protect our village. Time is of the essence, and we should proceed with caution and logic. \n\nLet us continue to openly share our thoughts and suspicions to expose the true culprits. Stay vigilant and remember that our actions will determine the survival of our village."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 3,
+            "context": "Suspicions about certain individuals have been raised by multiple players, including Player 5 and Player 6. They have expressed concerns about my actions and believe I may be working with the werewolves. I need to be careful and stay under suspicion while also diverting attention elsewhere. \n\nImportant information: \n- Werewolf_simple is Player 1.\n\nPrevious votes: \n- I voted for Player 5 in the previous round.\n\nBased on the information and suspicions shared by others, I need to analyze the situation further and determine my next move."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 4,
+            "context": "Based on the current game status and the actions of other players, my new notes are as follows:\n\n- Player 3 voted for Player 5 and accused them of working with the werewolves. This raises suspicions about both Player 3 and Player 5.\n- Player 0, Player 1, Player 2, and I all voted for Player 5 as well. This suggests that there may be a strong consensus among the villagers about Player 5 being a werewolf.\n- Player 6 has not voted yet, so we need to keep an eye on their actions in the next round.\n- It is crucial to gather concrete evidence before accusing and voting out players. Rumors and suspicions are not enough to make informed decisions.\n- As a villager, I need to actively participate in discussions and observe the actions of other players for any suspicious behavior or inconsistencies.\n- It is important to maintain unity and collaboration among the villagers to increase our chances of identifying and eliminating the werewolves.\n\nI will continue to gather information, analyze player behavior, and make informed decisions in upcoming rounds."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 6,
+            "context": "- Player 5 accused Player 3 of working with the werewolves\n- Players 0, 1, 2, 3, 4, and 6 are still alive\n- I need to gather concrete evidence to identify the werewolves\n- Time is running out, we must act swiftly and decisively\n- Need to promote unity and collaboration among the villagers\n- Previous vote: Player 5\n\nI must continue observing the actions of the remaining players and gather more information to make an informed decision about the werewolves. Unity and collaboration are crucial for our survival. We must act quickly before it's too late."
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "night"
+    },
+    {
+        "event": "inquiried",
+        "content": {
+            "player": 0,
+            "context": false,
+            "reason": "I will send a message to the moderator requesting the information on a player. I will ask for player number 0."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 1,
+            "context": "Advice for Werewolf_leader: Consider eliminating Player 2 tonight. They have been acting suspicious and may pose a threat to our group. Let's discuss further before making a decision."
+        }
+    },
+    {
+        "event": "targeted",
+        "content": {
+            "player": 4,
+            "reason": "For tonight, I want to eliminate Player 4."
+        }
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 4
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "day"
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 0,
+            "context": "My fellow villagers,\n\nAs we gather here once again, the threat of the werewolves still looms over our community. We must remain vigilant and united in our quest to uncover these creatures so that we may protect our village.\n\nI want to draw your attention to the recent demise of Player 5. This player, who was accused by multiple individuals, has been confirmed as a werewolf. This serves as validation for our suspicions and reinforces the importance of our actions.\n\nNow, let us turn our focus to the remaining players and carefully observe their behavior. We must be on the lookout for any signs of inconsistency and suspicious actions. Trust is a precious commodity in times like these, and it is up to us to identify those who may be deceiving us.\n\nI urge you all to speak up and share your thoughts and suspicions. Silence only serves the werewolves, allowing them to operate unchecked. Let's demonstrate our unity and collaboration by working together to eliminate the remaining threats among us. We cannot afford to let the werewolves continue their reign of terror.\n\nIn casting my vote, I have noticed some questionable behavior from Player 3 in previous rounds. There seems to be a level of evasiveness in their responses, which I find highly suspicious. I propose we focus our attention on Player 3 and thoroughly investigate their actions. Let us bring them to justice and bring us one step closer to victory.\n\nRemember, we must trust our instincts and rely on evidence. Do not be swayed by mere words or claims without substance. Let us deliberate and make the best decision for our village's survival."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 1,
+            "context": "My fellow villagers,\n\nAs we gather here once again, it is crucial that we remain focused and determined in our pursuit of the werewolves among us. We cannot afford to let these creatures continue to wreak havoc on our community.\n\nI want to bring your attention to Player 3. There have been suspicions raised about their behavior in previous rounds, and I believe it is time we thoroughly investigate their actions. Let us scrutinize their every move and gather concrete evidence to bring them to justice.\n\nTrust and collaboration are essential in our fight against these vicious werewolves. We must work together to identify and eliminate the true culprits. We cannot rely on empty claims or mere words without substantiation. We must make informed decisions based on evidence.\n\nTime is of the essence, and we must act swiftly. Let us maintain our focus and continue observing the actions of others. Remember, we need to vote strategically to ensure the survival of our village.\n\nIn light of the confirmed werewolf, Player 5, let us not underestimate the seriousness of this situation. Every decision we make is critical. Let us unite and oust the werewolves from our midst.\n\nNow is the time to speak up and share your thoughts and suspicions. We cannot afford to remain silent. Together, we have the power to overcome this threat and protect our village.\n\nIt is time for action. Let us vote and hold Player 3 accountable. Our village's survival depends on it."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 2,
+            "context": "Listen up, villagers! We need to get to the bottom of this chaos and find the remaining werewolves among us. \n\nPlayer 3 has been brought to my attention, with suspicions raised about their behavior in previous rounds. It is crucial that we thoroughly investigate their actions and gather concrete evidence. Let's observe Player 3 closely and vote strategically to ensure the survival of our village.\n\nWith Player 5 confirmed as a werewolf, we can't afford to underestimate the seriousness of this situation. Every decision we make is critical, and we must unite to oust the werewolves from our midst.\n\nNow is the time for action! Speak up and share your thoughts and suspicions. We can only overcome this threat by working together and making informed decisions.\n\nLet's hold Player 3 accountable and make a clear statement against their potential collaboration with the werewolves. Our village's survival depends on it."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 3,
+            "context": "Dear fellow villagers,\n\nI urge you to consider the information we have learned so far. While Player 5 has been confirmed as a werewolf, we must not forget the importance of remaining vigilant. Our village's survival depends on our ability to root out the remaining werewolves hiding among us.\n\nI would like to redirect your attention to Player 2. Suspicion has been raised about their behavior in previous rounds, and it is crucial that we thoroughly investigate their actions. Let us observe Player 2 closely and gather concrete evidence to make informed decisions.\n\nRemember, we must work together and hold those accountable who may be collaborating with the werewolves. Our village's survival depends on it.\n\nVote Player 2. Let us protect ourselves by ousting those who pose a threat.\n\nTogether, we can achieve victory."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 6,
+            "context": "Attention villagers,\n\nThe situation has become critical. With Player 5 confirmed as a werewolf, we must not let our guard down. We cannot afford to underestimate the seriousness of this threat. Every decision we make now is crucial for our survival.\n\nPlayer 3, I have my suspicions about your involvement with the werewolves. I urge the other villagers to closely observe Player 3's actions and gather concrete evidence to expose their true alignment.\n\nWe must hold those accountable who may be collaborating with the werewolves. This is a matter of life and death for our village. Let us unite and oust the werewolves from our midst.\n\nVote Player 3. Together, we can ensure the survival of our village."
+        }
+    },
+    {
+        "event": "vote_start"
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 0,
+            "voted_to_player": 3,
+            "reason": "Based on the information and evidence presented, I believe it is necessary to vote for Player 3. The suspicions raised about their behavior and their involvement with the werewolves cannot be ignored. Let's gather more concrete evidence and hold Player 3 accountable for their actions. \nMy vote is for Player 3. Let us protect ourselves by ousting those who may pose a threat to our village. Together, we can ensure our survival."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 1,
+            "voted_to_player": 3,
+            "reason": "I will vote for Player 3. They have been identified as the Werewolf Leader, which makes them a big threat to us."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 2,
+            "voted_to_player": 3,
+            "reason": "I vote for player 3. The suspicions raised about their involvement with the werewolves are significant, and we must thoroughly investigate to ensure the safety of our village."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 3,
+            "voted_to_player": 2,
+            "reason": "I will vote for Player 2. They have raised suspicions in previous rounds and it is important that we thoroughly investigate their actions. Let us gather concrete evidence to make informed decisions. Voting for Player 2 will help us protect ourselves by eliminating potential threats."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 6,
+            "voted_to_player": 2,
+            "reason": "I vote for Player 2. We need to thoroughly investigate their actions and gather concrete evidence to ensure the survival of our village."
+        }
+    },
+    {
+        "event": "vote_results",
+        "content": [
+            0,
+            0,
+            2,
+            3,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "event": "vote_end"
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 3
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 0,
+            "context": "Player 5 has been confirmed as a werewolf. Remain vigilant and observant of the remaining players. Suspicions have been raised against Player 2 and Player 3. Gather evidence and closely observe their actions. We must work together to eliminate the remaining werewolves and protect our village. Stay united and focused on our goal of survival."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 1,
+            "context": "- Player 3 is the Werewolf Leader, confirmed in a previous round.\n- Player 5 has been confirmed as a werewolf and is now dead.\n- Suspicions have been raised about Player 2's behavior.\n- Unity and collaboration are crucial for our survival.\n- Concrete evidence is necessary to make informed decisions.\n- Time is running out, and we must act swiftly.\n- We need to work together to identify and vote out the true culprits.\n- Let's maintain focus and continue observing others' actions to gather more evidence.\n "
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 2,
+            "context": "- Player 3 has been voted as a possible collaborator with the werewolves in the last round. We should remain cautious of their actions and gather more evidence.\n\n- Player 5 was eliminated as a villager in the previous round, confirming the existence of at least 2 alive werewolves.\n\n- Unity and collaboration are essential in exposing the true culprits. Let's continue sharing our suspicions and working together to protect our village.\n\n- We should prioritize gathering concrete evidence and making informed decisions. The survival of our village depends on it.\n\n- Stay vigilant and logical in our actions. Let's uncover the werewolves and ensure the safety of our community."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 6,
+            "context": "- Player 5 was confirmed as a werewolf in the previous round.\n- Player 3 was accused by multiple players, including myself, of collaborating with the werewolves.\n- Players 0, 1, 2, and 3 are still alive.\n- I need to gather more concrete evidence to identify the remaining werewolves.\n- Unity and collaboration among the villagers are crucial for our survival.\n- Previous vote: Player 2.\n\nI must continue observing the actions of the remaining players and gather more information to make an informed decision about the werewolves. Unity and collaboration are crucial for our survival. We must act quickly before it's too late."
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "night"
+    },
+    {
+        "event": "inquiried",
+        "content": {
+            "player": 2,
+            "context": false,
+            "reason": "I want to know if player number 2 is a werewolf or not."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 1,
+            "context": "My advice to Werewolf_leader for tonight's elimination would be to target Player 0. They have been showing suspicious behavior and it would create confusion among the Villagers."
+        }
+    },
+    {
+        "event": "targeted",
+        "content": {
+            "player": 0,
+            "reason": "For tonight, I choose to kill Player number 0."
+        }
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 0
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "day"
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 1,
+            "context": "Attention, villagers! We need to act swiftly and united to root out the true culprits among us. Player 3 has been confirmed as the Werewolf Leader, so let's keep a close eye on his accomplices. Player 5 was also eliminated and confirmed as a werewolf. As for Player 2, suspicions have been raised about their behavior, and we should investigate further.\n\nWe cannot afford to waste any more time. Let us collaborate and share any concrete evidence we may have against the remaining players. Remember, our survival depends on our ability to work together and make informed decisions. Stay focused, observe others' actions, and let's gather more evidence to vote out the true werewolves among us."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 2,
+            "context": "Player 1, Player 6, it's time to reconsider our suspicions. Let's not forget the evidence we have against Player 3 as the Werewolf Leader. We need to be extra vigilant in identifying their seclusive accomplices.\n\nPlayer 5's elimination confirmed the presence of at least 2 alive werewolves among us. We cannot afford to waste any more time. We must gather concrete evidence against the remaining players.\n\nI have noticed unsettling behavior from Player 1. Their attempts to shift focus away from Player 3 are suspicious. We should investigate further and not let them slip under the radar.\n\nPlayer 6, I urge you to reconsider your stance as well. Now is not the time for complacency. We must act decisively to protect the village.\n\nLet's band together and make informed decisions. Our survival hangs in the balance. Vote wisely, and let's expose the true culprits among us."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 6,
+            "context": "Fellow villagers, the time for passive observation is over. We must take action against the remaining players and identify the true werewolves among us. \n\nPlayer 2, I find your attempts to divert suspicion away from Player 3 highly suspicious. It's time to reconsider our suspicions against Player 3 as the Werewolf Leader. Let us not forget the evidence we have against them. \n\nPlayer 1, your attempts to shift focus away from Player 3 are also concerning. We cannot afford complacency at this critical stage of the game. This is the moment to act decisively and gather concrete evidence. \n\nI encourage all remaining villagers to come forward with any information or observations they may have. Let us collaborate and share our findings, so we can eliminate the true culprits among us. \n\nPlayer 6, I implore you to reconsider your stance and rely on factual evidence. Our survival as a village hangs in the balance, and we must make informed decisions. \n\nLet us vote wisely and rally together as a united front against the werewolves. Time is of the essence, and we cannot afford to waste another moment. The fate of the village rests in our hands."
+        }
+    },
+    {
+        "event": "vote_start"
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 1,
+            "voted_to_player": 2,
+            "reason": "Based on the information and previous notes, I will vote to eliminate Player 2. They have shown suspicious behavior and I believe they could be one of the werewolves."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 2,
+            "voted_to_player": 6,
+            "reason": "My fellow villagers, as we gather here to make an informed decision, it is crucial that we consider the evidence and collaborate on finding the true werewolves among us.\nPlayer 6, I understand your suspicions toward me. However, I assure you that I am a villager just like you. We cannot afford to turn against each other at this critical moment. Let us focus on gathering concrete evidence instead.\n\nPlayer 1, I hear your concerns about Player 3, but I believe we should not solely rely on past suspicions. It is important to consider new information and reassess our suspicions. \n\nWith that said, after evaluating the available information, I have decided to cast my vote for Player 6. Their insistence on pressing against me without any new evidence suggests a hidden agenda. Let us vote wisely and protect our village from the true threats.\n\nTherefore, I cast my vote for Player 6."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 6,
+            "voted_to_player": 2,
+            "reason": "I vote to kick player number 2 out of the game."
+        }
+    },
+    {
+        "event": "vote_results",
+        "content": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        "event": "vote_end"
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 2
+        }
+    }
+]
