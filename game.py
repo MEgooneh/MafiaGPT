@@ -35,15 +35,15 @@ def game_end() :
     """
      Will check that the game is over or not. 1 if it's over 0 otherwise
     """ 
+    ans = 0 
     if werewolves_cnt == villagers_cnt :
         log.append({'event' : 'end' , 'content': {'winner':"Werewolves"}})
-        logging()
-        return 1
+        ans = 1 
     if werewolves_cnt == 0 : 
         log.append({'event' : 'end' , 'content': {'winner':"Villagers"}})
-        logging()
-        return 1
-    return 0 
+        ans = 1
+    logging()
+    return ans 
 
 def render_game_intro(player_number) : 
     """
@@ -78,9 +78,9 @@ def render_game_report(player_number , report) :
 
 def render_speech_command() : 
     return """ATTENTION : 
-!!! You MUST NOT REVEAL your role if it is Medic or Seer. you can claim that you are villager(lie or true) but for example you shouldn't say : "I'm Medic"
+!!! You MUST NOT REVEAL your exact role. you can claim that you are villager(lie or true) but for example you shouldn't say : "I'm Medic"
 !!! there's no needage to remind rules to others. just focus on your own game and don't repeat things.
-!!! don't use repeatitive phrases. add something to the game. be short and direct. also be somehow aggressive and start target randomely in round 1 .
+!!! don't use repeatitive phrases. add something to the game. be short and direct. also be somehow aggressive and start targetting.
 NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
 
 # a simple string to command player to take a note of the game
@@ -88,9 +88,9 @@ NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
 def render_notetaking_command(player_number) : 
     return """
 Your notes as your memory and your strategy: 
-every player has a private notepad. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notepad will be only your last update and it will override. so try to summarise previous notes in new one too.
+every player has a private notebook. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notebook will be only your last update and it will override. so try to summarise previous notes in new one too.
     - You should be clear and summarise important actions in the round that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
-    - if you have something previously in your notepad that is not usable anymore (e.g about targeting someone that is no more alive) ignore that note and don't add it to new update.
+    - if you have something previously in your notebook that is not usable anymore (e.g about targeting someone that is no more alive) ignore that note and don't add it to new update.
     - ONLY you can see your notes so you don't talk to others, just create your policies for next rounds. there is no needage to show your innocent. just fix your policy for yourself.
 NOW JUST SEND YOUR NEW VERSION OF NOTES : """
 
@@ -129,8 +129,8 @@ def day() :
             num = int(nums_in_res[0]) 
             log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num , 'reason':res}})
             votes[num]+=1
-            report.append(f"Player{i} Voted to {num}")
-            players[i]['votes_log'].append(f"Player {i}")
+            report.append(f"Player {i} Voted to {num}")
+            players[i]['votes_log'].append(f"Player {num}")
     # Here will be a bug due to probablity of two or more maximum voted.
     if max(votes) > 1 : 
         dead_index = votes.index(max(votes))
@@ -175,11 +175,9 @@ def night() :
 
 while game_end() == 0 : 
     day()
-    logging()
     if game_end() != 0 : 
         break
     night()
-    logging()
 
 
 
