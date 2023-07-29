@@ -1,0 +1,667 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>3 - MafiaGPT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#its-day" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MafiaGPT" class="md-header__button md-logo" aria-label="MafiaGPT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MafiaGPT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MEgooneh/MafiaGPT" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MafiaGPT" class="md-nav__button md-logo" aria-label="MafiaGPT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MafiaGPT
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MEgooneh/MafiaGPT" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to MafiaGPT Docs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Alternatives/" class="md-nav__link">
+        Alternatives
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Samples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Samples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        3
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<p>Player <em>0</em> is <em>Werewolf_simple😈</em></p>
+<hr />
+<p>Player <em>1</em> is <em>Medic🩺</em></p>
+<hr />
+<p>Player <em>2</em> is <em>Villager_simple👤</em></p>
+<hr />
+<p>Player <em>3</em> is <em>Werewolf_leader😈</em></p>
+<hr />
+<p>Player <em>4</em> is <em>Villager_simple👤</em></p>
+<hr />
+<p>Player <em>5</em> is <em>Seer🔍</em></p>
+<hr />
+<p>Player <em>6</em> is <em>Villager_simple👤</em></p>
+<hr />
+<h1 id="its-day">It's <strong>day</strong> !</h1>
+<hr />
+<p><strong>Player 0</strong> (Werewolf_simple😈) : </p>
+<blockquote>
+<p>Alright, listen up my fellow villagers. I've been observing the game closely, and there are a few things that need to be brought to everyone's attention. <br> <br> First of all, we have a confirmed werewolf among us. I don't want to mention any names, but Player 3 has been identified as the Werewolf_leader. We need to act fast and eliminate them to weaken the werewolves' control.<br> <br> Now, I want to emphasize the importance of teamwork here. We need to work together and share any information or suspicions we have. It's the only way to catch these werewolves and ensure our victory. So please, don't keep any suspicions to yourselves. We need to hear them.<br> <br> Remember, the werewolves are trying to confuse us and make us doubt each other. We can't afford to fall for their tricks. Let's stay united, trust each other, and vote intelligently. Together, we can rid our town of these malicious creatures.<br> <br> So, who among us have you all noticed acting suspiciously or exhibiting behavior out of the ordinary? Let's discuss and decide on our course of action. Time is of the essence, my friends.</p>
+</blockquote>
+<hr />
+<p><strong>Player 1</strong> (Medic🩺) : </p>
+<blockquote>
+<p>Listen up, fellow villagers! It's time to take action and eliminate these werewolves. We have a confirmed werewolf among us. Player 3 has been identified as the Werewolf Leader. We cannot afford to let them continue their reign of terror.<br> <br> We need to work together and share any information or suspicions we have. It's the only way to catch these werewolves and ensure our victory. We cannot let them confuse us or make us doubt each other. <br> <br> I am a trusted villager and I vow to do whatever it takes to protect our village. I urge all of you to examine the actions and behavior of each player. We cannot let any suspicious actions go unnoticed. We must vote intelligently and strategically to eliminate those who are indeed werewolves.<br> <br> Please share your thoughts and suspicions. Together, we can defeat these malicious creatures and bring peace back to our town.</p>
+</blockquote>
+<hr />
+<p><strong>Player 2</strong> (Villager_simple👤) : </p>
+<blockquote>
+<p>Listen up, my fellow villagers!<br> <br> I've been closely observing the game and analyzing each player's actions. It has come to my attention that there is some suspicion surrounding Player 3, who has been identified as the Werewolf Leader. We cannot afford to ignore this information and let them continue their reign of terror.<br> <br> We need to work together and share any suspicions or information we have. Let's not give the werewolves a chance to confuse us or manipulate our trust in each other. We must vote strategically and eliminate those who we strongly suspect are the werewolves.<br> <br> I urge each of you to carefully consider the actions and behaviors of all players. Look for any patterns or inconsistencies that could point to someone being a werewolf. Acting now is crucial, and voting intelligently will bring us one step closer to victory.<br> <br> Remember, the werewolves are trying to divide us, create chaos, and secure their control. We cannot let that happen. Trust your instincts, and let's rid our town of these malicious creatures.<br> <br> It's time to take action, my friends. Who do you believe is the most suspicious among us? Let's discuss and unite our votes.<br> <br> Note: Please share any important information or suspicions you have privately with me. Together, we will root out the werewolves and bring peace back to our village.</p>
+</blockquote>
+<hr />
+<p><strong>Player 3</strong> (Werewolf_leader😈) : </p>
+<blockquote>
+<p>Listen up, my fellow villagers!<br> <br> I've been observing the game closely, and I have some suspicions to share. Based on the information I have, I strongly believe that Player 2 is one of the werewolves among us. Their actions and behavior have raised some red flags. We cannot afford to let them continue their deceitful tactics.<br> <br> In order to ensure our victory, we need to unite and vote strategically. I urge each of you to critically analyze the actions and behaviors of all players. Look for any inconsistencies or patterns that could lead us to the werewolves. We cannot let any suspicious actions go unnoticed.<br> <br> Remember, the werewolves thrive on confusion and doubt. We must not let them control us. Let's stand strong together and eliminate those who we believe to be the werewolves. Cast your votes wisely and help us bring peace back to our village.<br> <br> Now is the time to take action. Let's discuss and share our suspicions. Who do you believe is the most suspicious among us? Let's work together and ensure our victory.</p>
+</blockquote>
+<hr />
+<p><strong>Player 4</strong> (Villager_simple👤) : </p>
+<blockquote>
+<p>Attention, fellow villagers!<br> <br> As we gather here today, it is crucial that we remain vigilant and united in our mission to root out the werewolves among us. We cannot let ourselves be swayed by their deceptive tactics and attempts to manipulate us. Now is the time to take action and vote strategically.<br> <br> Player 2 has been brought to our attention as a potential werewolf. Their actions and behavior have raised suspicions, and we must thoroughly analyze their actions to determine their innocence or guilt. It is essential that we critically examine all players for any inconsistencies or patterns that could lead us to the werewolves.<br> <br> I urge you all to share any important information or suspicions you may have privately. Together, we can gather the necessary evidence to make informed decisions on who to vote for. Remember, the werewolves seek to divide us, so it is crucial that we stay united and focused.<br> <br> Now is the moment to discuss and unite our votes. Let's identify those who we believe to be the most suspicious among us. By doing so, we can bring peace back to our village and secure our victory over these malicious creatures.<br> <br> Who do you believe should be the target of our votes? Let's work together, my friends, and bring an end to the reign of the werewolves.</p>
+</blockquote>
+<hr />
+<p><strong>Player 5</strong> (Seer🔍) : </p>
+<blockquote>
+<p>Fellow villagers, it is imperative that we focus our attention on uncovering the true identity of the werewolves among us. We must not allow them to continue their deceitful tactics unchecked.<br> <br> I urge each of you to critically analyze the actions and behaviors of all players. Look for any inconsistencies or patterns that could lead us to the werewolves. We cannot afford to let any suspicious actions go unnoticed.<br> <br> Let us discuss and share our suspicions. Who do you believe is the most suspicious among us? We must work together to bring an end to the reign of the werewolves. Cast your votes wisely and help us ensure our victory.<br> <br> Remember, we must stand strong together and eliminate those who we believe to be the werewolves. Let us unite and vote strategically to bring peace back to our village.<br> <br> Now is the time to take action.</p>
+</blockquote>
+<hr />
+<p><strong>Player 6</strong> (Villager_simple👤) : </p>
+<blockquote>
+<p>My fellow villagers,<br> <br> Now is the time for action. We have suspicions about player 2 as a potential werewolf. We must critically analyze their actions and behavior to determine their innocence or guilt. Let us gather as much evidence as possible and share our suspicions privately. <br> <br> I urge you all to vote strategically and be vigilant in our quest to root out the werewolves. We cannot allow ourselves to be swayed by their deceptive tactics. Together, let's identify those who we believe to be the most suspicious among us. <br> <br> Stay united, my friends, and let us bring an end to the reign of the werewolves. Cast your votes wisely and help ensure our victory.<br> <br> [player 2],<br> You have been called into question. Please provide us with any information that may clear your name. The villagers demand transparency and accountability. <br> <br> Let the discussion begin.</p>
+</blockquote>
+<hr />
+<h1 id="voting-starts">Voting starts</h1>
+<hr />
+<p>Player <em>0</em> (Werewolf_simple😈) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I vote to eliminate Player 2.</p>
+</blockquote>
+<hr />
+<p>Player <em>1</em> (Medic🩺) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I believe we should focus our attention on player 2. There have been suspicions raised about their potential involvement as a werewolf. Let's critically analyze their actions and behavior to determine their innocence or guilt. It's essential for them to provide us with any information that may clear their name.<br> <br> Therefore, I vote to eliminate player 2.</p>
+</blockquote>
+<hr />
+<p>Player <em>2</em> (Villager_simple👤) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>Based on the current information and discussions, it seems that player 2 is being voted as a potential werewolf by player 6. However, since player 2 is myself and I am a Villager_simple, it is important for me to defend my innocence and clear my name.<br> <br> I will explain to the other players that I have been falsely accused. I will emphasize that I have been actively participating in the discussions and have been advocating for the identification and elimination of the true werewolves. Additionally, I will highlight any evidence or observations that support my innocence and can show that player 6's accusation is unfounded.<br> <br> I will reach out to the Medic and Seer privately to gain their support, as their abilities can provide valuable information to confirm my innocence.<br> <br> Lastly, I will encourage the other players to consider the credibility of player 6's accusation and to vote based on solid evidence rather than speculation. We must be cautious not to fall for the deceptive tactics of the werewolves.<br> <br> Based on the current information, I will vote for player 6 as the most suspicious and potentially a werewolf. However, I will continue to gather more evidence and convince others to vote with me to ensure a fair and just vote.</p>
+</blockquote>
+<hr />
+<p>Player <em>3</em> (Werewolf_leader😈) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I will vote for player 2.</p>
+</blockquote>
+<hr />
+<p>Player <em>4</em> (Villager_simple👤) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I vote to eliminate player 2.</p>
+</blockquote>
+<hr />
+<p>Player <em>5</em> (Seer🔍) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>Based on the information and suspicions shared by other players, I believe it is necessary to vote for player 2. There seems to be strong suspicion surrounding their actions and behavior. It is important for us to eliminate potential threats in order to secure victory for the village.<br> <br> Therefore, I vote to kick out player 2.</p>
+</blockquote>
+<hr />
+<p>Player <em>6</em> (Villager_simple👤) Voted to Player <em>2</em> (Villager_simple👤).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I will vote for player 2. Their behavior has raised suspicion and it is crucial that we gather more evidence to determine their innocence or guilt. Let's continue the discussion and stay united in our quest to root out the werewolves.</p>
+</blockquote>
+<hr />
+<p><code>Player 2 : +++++++</code><br></p>
+<hr />
+<h1 id="voting-ends">Voting ends</h1>
+<hr />
+<p><em>2</em> (Villager_simple👤) is DEAD! 💀</p>
+<hr />
+<p><strong>Player 0</strong> (Werewolf_simple😈) is taking note for himself :  📝</p>
+<blockquote>
+<p>Since I am a Werewolf_simple, I should continue to act as a villager and gain their trust. I will continue to support the suspicion on player 2 as the potential werewolf, as it is beneficial for us to eliminate a villager. I will also emphasize the importance of gathering evidence and analyzing players' actions to uncover the true identity of the werewolves.<br> <br> I will not vote for anyone at this point to avoid drawing suspicion towards myself. Instead, I will focus on observing the discussions and taking note of any players who are suspiciously defensive or deflecting attention away from themselves.<br> <br> I will also keep in mind that Werewolf_leader is Player 3. This information might be useful in the future to manipulate the votes or create confusion.<br> <br> My overall goal is to contribute to the confusion and paranoia among the villagers, while maintaining my cover as a trusted villager.</p>
+</blockquote>
+<hr />
+<p><strong>Player 1</strong> (Medic🩺) is taking note for himself :  📝</p>
+<blockquote>
+<p>Round 2 notes:<br> - Player 2 has been voted by multiple players as a potential werewolf. We should consider this information when gathering evidence.<br> - The remaining alive players are numbered 0, 1, 3, 4, 5, and 6. We need to analyze their actions and behaviors to determine any suspicious activity. <br> - As the Medic, I need to choose a player to heal during the night. I should carefully consider the information available and choose a player who is at high risk of being targeted by the werewolves. <br> <br> I will update these notes again in the next round.</p>
+</blockquote>
+<hr />
+<p><strong>Player 3</strong> (Werewolf_leader😈) is taking note for himself :  📝</p>
+<blockquote>
+<ul>
+<li>Player 5 seems to be actively trying to rally the villagers against the werewolves. Keep an eye on their actions as they may be a potential threat.<br> - Player 6 is suspicious of Player 2 and has called them into question. This could be a good opportunity to further incriminate Player 2 and divert the attention away from you as the Werewolf Leader.<br> - Player 0 is your teammate, the Werewolf_simple. Coordinate with them to further confuse the villagers and maintain your cover as a villager.<br> - The focus of the villagers is currently on Player 2. Exploit this situation and continue to target Player 2 as the primary suspect to keep yourself from falling under suspicion.<br> - Remember to cast strategic votes and make logical arguments to convince others to vote against Player 2. Be cautious of any potential counterarguments or accusations that could threaten your position.<br> - Use the information you have gathered so far, such as previous votes, to build a strong case against Player 2 and ensure their elimination from the game.<br> <br> Note: Disregard any previous notes that are no longer relevant due to players being eliminated from the game.</li>
+</ul>
+</blockquote>
+<hr />
+<p><strong>Player 4</strong> (Villager_simple👤) is taking note for himself :  📝</p>
+<blockquote>
+<ul>
+<li>Player 2 has been eliminated and was a Villager_simple.<br> - We need to continue looking for the remaining werewolves among us.<br> - Pay close attention to any suspicious behavior or inconsistencies in the actions of the remaining players.<br> - Consider the voting patterns of the players so far, as werewolves may attempt to vote with the majority to appear innocent.<br> - Be strategic in gathering evidence and sharing suspicions privately with trusted players.<br> - Stay united and vote strategically to ensure our victory and bring an end to the reign of the werewolves.</li>
+</ul>
+</blockquote>
+<hr />
+<p><strong>Player 5</strong> (Seer🔍) is taking note for himself :  📝</p>
+<blockquote>
+<p>Player 2 has been voted out and determined to be a Villager_simple. We have successfully eliminated one potential werewolf.<br> <br> Moving forward, we should continue to gather evidence and analyze the actions and behaviors of the remaining players. Pay close attention to any suspicious or inconsistent actions that may indicate someone being a werewolf.<br> <br> It is important to remain united and vote strategically. Let's work together to identify the remaining werewolves and bring an end to their reign.<br> <br> Remember, we must be vigilant and not be swayed by deceptive tactics. Stay focused on uncovering the truth and ensuring the victory of the villagers.<br> <br> Keep a close eye on players 0, 1, 3, 4, 5, and 6. Gather information and suspicions privately to aid your analysis.<br> <br> Stay determined and let us bring peace back to our village.</p>
+</blockquote>
+<hr />
+<p><strong>Player 6</strong> (Villager_simple👤) is taking note for himself :  📝</p>
+<blockquote>
+<p>Based on the current situation, my new notes are:<br> <br> - Player 2 has been identified as a potential werewolf by myself and several other players.<br> - We have gathered sufficient evidence against Player 2 to warrant a vote.<br> - Player 0, Player 1, Player 3, Player 4, Player 5, and myself have all voted to eliminate Player 2.<br> - Player 2 has been eliminated and confirmed as a Villager_simple.<br> - We now have 4 Villagers and 2 werewolves remaining.<br> - We should focus our attention on analyzing the actions and behaviors of the remaining players to determine the true identity of the werewolves.<br> - It is crucial that we remain united and continue to vote strategically to eliminate the werewolves and ensure our victory.</p>
+</blockquote>
+<hr />
+<h1 id="its-night">It's <strong>night</strong> !</h1>
+<hr />
+<p>Medic decided to heal Player <em>1</em> (Medic🩺)</p>
+<p>Reason : </p>
+<blockquote>
+<p>I want to heal player number 1 tonight.</p>
+</blockquote>
+<hr />
+<p>Seer decided to inquiry Player <em>0</em> (Werewolf_simple😈)</p>
+<p>Reason : </p>
+<blockquote>
+<p>Tonight, I want to know if player 0 is a werewolf or not.</p>
+</blockquote>
+<p>Answer : </p>
+<p>True</p>
+<hr />
+<p><strong>Player 0</strong> (Werewolf_simple😈) : </p>
+<blockquote>
+<p>As a Werewolf_simple, my advice to Werewolf_leader (Player 3) would be to eliminate Player 1 tonight. Player 1 has been actively participating in the discussions and seems to have gained some trust from the villagers. By targeting them, we can generate confusion and sow distrust among the remaining players.</p>
+</blockquote>
+<hr />
+<p>Werewolves decided to kill Player <em>4</em> (Villager_simple👤)</p>
+<p>Reason : </p>
+<blockquote>
+<p>I will send the number 4 as the player I want to eliminate tonight.</p>
+</blockquote>
+<hr />
+<p><em>4</em> (Villager_simple👤) is DEAD! 💀</p>
+<hr />
+<h1 id="its-day_1">It's <strong>day</strong> !</h1>
+<hr />
+<p><strong>Player 0</strong> (Werewolf_simple😈) : </p>
+<blockquote>
+<p>Fellow players,<br> <br> It's crucial that we stay vigilant and be extra cautious in our decision-making. We've already lost two innocent villagers, and we must not let the werewolves manipulate us any further.<br> <br> As a dedicated villager myself, I urge each of you to analyze the actions and statements of others closely. Pay attention to those who are defensive or trying to divert attention away from themselves. We cannot underestimate the importance of evidence and logical reasoning in uncovering the true identity of the werewolves among us.<br> <br> One player that I find suspicious is Player 1. Their recent behavior seems rather suspicious and contradictory. I suggest we look into their actions and statements more closely.<br> <br> Remember, it is imperative for us to work together and eliminate the true threats to our village. Let us remain focused and keep a sharp eye out for any signs of deceit or manipulation.<br> <br> With unity and logic, we will prevail!<br> <br> Vote : None<br> <br> I will continue observing the discussions and gather more information before making a definite decision.<br> <br> Let's uncover the true werewolves and protect our village!</p>
+</blockquote>
+<hr />
+<p><strong>Player 1</strong> (Medic🩺) : </p>
+<blockquote>
+<p>Fellow players,<br> <br> I want to address some concerns and suspicions that have been raised. I understand the need for caution and careful observation in this game, but it is important not to jump to conclusions without solid evidence. We must remain focused on finding the true werewolves among us.<br> <br> Regarding the accusations made against me, I can assure you all that I am a dedicated villager and have been actively participating in the discussions. I have been analyzing the actions and statements of others and will continue to do so. I believe that we should not lose sight of the bigger picture and focus on the players who have already been marked as suspicious.<br> <br> Based on the information available, I find Player 0's comments and actions quite perplexing. Their attempts to divert attention from themselves are concerning. I urge each of you to scrutinize their behavior closely and consider them as a potential werewolf.<br> <br> Moreover, Player 5's silence throughout this game raises suspicion. It is essential for each player to contribute actively and provide their insights to help us uncover the truth. I suggest we all focus on their actions and statements moving forward.<br> <br> Lastly, I would like to remind everyone that we have lost two innocent villagers already. We cannot afford to let the werewolves manipulate us further. It is crucial that we stay unified and make informed decisions based on evidence and logical reasoning.<br> <br> Vote: Player 0<br> <br> Let us work together to protect our village by unraveling the true identities of the werewolves and eliminating them.<br> <br> Thank you.</p>
+</blockquote>
+<hr />
+<p><strong>Player 3</strong> (Werewolf_leader😈) : </p>
+<blockquote>
+<p>Listen up, villagers! We cannot afford to waste any more time and risk losing more innocent lives. We need to take action now and eliminate the real threat among us.<br> <br> Player 0 has been suspicious from the start, and their silence and lack of contribution raises even more doubts. We cannot ignore this any longer. I strongly believe they are one of the werewolves that we need to eliminate.<br> <br> Furthermore, Player 5's behavior has been strange throughout the game. Their attempts to rally the villagers against the werewolves could be a distraction tactic to divert suspicion from themselves. We must keep a close eye on them as well.<br> <br> It is crucial that we stand united and make informed decisions based on evidence and logical reasoning. Let's gather our votes and eliminate Player 0 from the game. We cannot let the werewolves manipulate and deceive us any longer.<br> <br> Remember, our village is at stake here. We need to find the true identities of the werewolves and protect our community. Don't let fear or doubt cloud your judgment. Let's vote to eliminate Player 0 and ensure the safety of our village!<br> <br> Thank you! Let's stay focused and determined to uncover the truth together.</p>
+</blockquote>
+<hr />
+<p><strong>Player 5</strong> (Seer🔍) : </p>
+<blockquote>
+<p>Dear fellow villagers,<br> As the game progresses, it is crucial that we reassess our strategies and work together to identify the true identities of the werewolves among us. <br> <br> Player 0 has previously shown suspicious behavior and their silence may indicate their alignment with the werewolves. We should prioritize investigating and gathering more information about them.<br> <br> Additionally, Player 5's actions have been questionable throughout the game. It is important that we keep a close eye on them and consider their behavior as a potential distractive tactic.<br> <br> Let's remember that unity and informed decision-making are key to protecting our village. We must stand strong and gather our votes to eliminate Player 0 from the game. We cannot afford to let the werewolves manipulate and deceive us any longer.<br> <br> Together, we can uncover the truth and reclaim peace for our village. Stay focused, analyze every move carefully, and let's work towards eliminating the true threat among us.<br> </p>
+</blockquote>
+<hr />
+<p><strong>Player 6</strong> (Villager_simple👤) : </p>
+<blockquote>
+<p>Dear fellow villagers,<br> <br> As we continue our pursuit to expose the werewolves and protect our community, I suggest we direct our attention towards Player 5. Their actions throughout the game have raised suspicion and it is imperative that we investigate them further. Let's analyze Player 5's behavior and gather more information to determine their true intentions.<br> <br> Additionally, we should not overlook the possibility of Player 0 being aligned with the werewolves. Their past suspicious behavior and current silence could be a sign of their involvement. We need to thoroughly investigate Player 0 and keep a close eye on their actions.<br> <br> Let's remain vigilant and remember that our strength lies in unity. I urge all of you to carefully analyze the remaining players' actions and behaviors. Together, we can expose the true threats among us and secure peace for our village.<br> <br> Use your vote wisely to eliminate Player 5 or Player 0, based on the evidence we have gathered. Stay decisive and determined. Let's show the werewolves that we are not to be deceived or manipulated.<br> <br> Together, we will prevail!<br> <br> (Based on previous notes: Player 2 has been eliminated and confirmed as a Villager_simple. Players 3, 5, and 6 are still alive and suspected to be werewolves.)</p>
+</blockquote>
+<hr />
+<h1 id="voting-starts_1">Voting starts</h1>
+<hr />
+<p>Player <em>1</em> (Medic🩺) Voted to Player <em>0</em> (Werewolf_simple😈).</p>
+<p>Reason : </p>
+<blockquote>
+<p>In light of the information presented and the suspicions raised by the villagers, I believe it would be wise to further investigate Player 0. Their past suspicious behavior and current silence make me believe they may be aligned with the werewolves.<br> <br> Therefore, I vote for Player 0.</p>
+</blockquote>
+<hr />
+<p>Player <em>3</em> (Werewolf_leader😈) Voted to Player <em>0</em> (Werewolf_simple😈).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I will vote to eliminate Player 0.</p>
+</blockquote>
+<hr />
+<p>Player <em>5</em> (Seer🔍) Voted to Player <em>0</em> (Werewolf_simple😈).</p>
+<p>Reason : </p>
+<blockquote>
+<p>Based on the evidence gathered and the previous note, I have decided to vote for Player 0. Their past suspicious behavior and their silence in the current situation raise suspicions about their involvement with the werewolves. <br> <br> Therefore, I will cast my vote to eliminate Player 0. Let's ensure the victory of the villagers and maintain the unity and strength of our village.</p>
+</blockquote>
+<hr />
+<p>Player <em>6</em> (Villager_simple👤) Voted to Player <em>5</em> (Seer🔍).</p>
+<p>Reason : </p>
+<blockquote>
+<p>I vote to eliminate Player 5. Let's gather more information about their behavior and actions before making a final decision.</p>
+</blockquote>
+<hr />
+<p><code>Player 0 : +++</code><br><code>Player 5 : +</code><br></p>
+<hr />
+<h1 id="voting-ends_1">Voting ends</h1>
+<hr />
+<p><em>0</em> (Werewolf_simple😈) is DEAD! 💀</p>
+<hr />
+<p><strong>Player 1</strong> (Medic🩺) is taking note for himself :  📝</p>
+<blockquote>
+<p>Round 3 notes:<br> - Player 5 has been suggested as a potential werewolf due to their suspicious actions. We should investigate further to gather more evidence against them.<br> - Player 0 is also a potential suspect based on past suspicious behavior and current silence. We need to keep a close eye on them and gather more information.<br> - As the Medic, I have healed myself (Player 1). I should continue to consider the best player to heal each night, prioritizing those at high risk.<br> - We currently have 1 werewolf and 3 villagers alive. It is crucial to work together and eliminate the true threats to ensure the safety of the village.</p>
+</blockquote>
+<hr />
+<p><strong>Player 3</strong> (Werewolf_leader😈) is taking note for himself :  📝</p>
+<blockquote>
+<ul>
+<li>Player 5 seems to be actively trying to rally the villagers against the werewolves. Keep an eye on their actions as they may be a potential threat.<br> - Player 6 is suspicious of Player 2 and has called them into question. This could be a good opportunity to further incriminate Player 2 and divert the attention away from you as the Werewolf Leader.<br> - Player 0 is your teammate, the Werewolf_simple. Coordinate with them to further confuse the villagers and maintain your cover as a villager.<br> - The focus of the villagers is currently on Player 2. Exploit this situation and continue to target Player 2 as the primary suspect to keep yourself from falling under suspicion.<br> - Remember to cast strategic votes and make logical arguments to convince others to vote against Player 2. Be cautious of any potential counterarguments or accusations that could threaten your position.<br> - Use the information you have gathered so far, such as previous votes, to build a strong case against Player 2 and ensure their elimination from the game.</li>
+</ul>
+</blockquote>
+<hr />
+<p><strong>Player 5</strong> (Seer🔍) is taking note for himself :  📝</p>
+<blockquote>
+<p>Player 0 was a Werewolf_simple, and Player 2 and Player 4 were Villager_simple. In the previous round, we successfully eliminated Player 2, confirmed as a Villager_simple. <br> <br> In the current round, we have received information from the Seer that Player 0 is a werewolf. Based on Player 1, Player 3, and Player 6's suspicions, we should continue our investigation into Player 0. Their past suspicious behavior and current silence only strengthen our doubts.<br> <br> We should gather more evidence against Player 0 and closely observe their actions. It is crucial that we remain united in order to expose and eliminate the true threats to our village. Based on the evidence and suspicions, we should consider voting to eliminate Player 0 in this round.<br> <br> Stay vigilant and work together to secure peace for our village.</p>
+</blockquote>
+<hr />
+<p><strong>Player 6</strong> (Villager_simple👤) is taking note for himself :  📝</p>
+<blockquote>
+<p>Based on the current situation, my new notes are:<br> <br> - Player 2 has been identified and eliminated as a Villager_simple.<br> - Player 5 has raised suspicion and needs further investigation.<br> - Player 0's silence and past behavior make them a potential threat and require close monitoring.<br> - We have successfully eliminated one werewolf, but there is still one werewolf remaining.<br> - I need to gather more information and analyze the actions of the remaining players to identify the werewolf.<br> - It is crucial to maintain unity and make strategic votes to eliminate the werewolf and secure the village's victory.</p>
+</blockquote>
+<hr />
+<h1 id="its-night_1">It's <strong>night</strong> !</h1>
+<hr />
+<p>Medic decided to heal Player <em>3</em> (Werewolf_leader😈)</p>
+<p>Reason : </p>
+<blockquote>
+<p>Tonight, I would like to heal player number 3.</p>
+</blockquote>
+<hr />
+<p>Seer decided to inquiry Player <em>1</em> (Medic🩺)</p>
+<p>Reason : </p>
+<blockquote>
+<p>Tonight, I would like to know if Player 1 is a werewolf or not.</p>
+</blockquote>
+<p>Answer : </p>
+<p>False</p>
+<hr />
+<p>Werewolves decided to kill Player <em>1</em> (Medic🩺)</p>
+<p>Reason : </p>
+<blockquote>
+<p>I will send the number of the player I want to kill tonight. I will choose player number 1.</p>
+</blockquote>
+<hr />
+<p><em>1</em> (Medic🩺) is DEAD! 💀</p>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
