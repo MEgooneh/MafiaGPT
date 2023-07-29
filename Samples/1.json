@@ -3,49 +3,49 @@
         "event": "roles",
         "content": {
             "player": 0,
-            "role": "Werewolf_simple"
+            "role": "Villager_simple"
         }
     },
     {
         "event": "roles",
         "content": {
             "player": 1,
-            "role": "Seer"
+            "role": "Villager_simple"
         }
     },
     {
         "event": "roles",
         "content": {
             "player": 2,
-            "role": "Villager_simple"
-        }
-    },
-    {
-        "event": "roles",
-        "content": {
-            "player": 3,
-            "role": "Villager_simple"
-        }
-    },
-    {
-        "event": "roles",
-        "content": {
-            "player": 4,
             "role": "Medic"
         }
     },
     {
         "event": "roles",
         "content": {
-            "player": 5,
+            "player": 3,
+            "role": "Werewolf_simple"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 4,
             "role": "Werewolf_leader"
         }
     },
     {
         "event": "roles",
         "content": {
-            "player": 6,
+            "player": 5,
             "role": "Villager_simple"
+        }
+    },
+    {
+        "event": "roles",
+        "content": {
+            "player": 6,
+            "role": "Seer"
         }
     },
     {
@@ -56,49 +56,49 @@
         "event": "speech",
         "content": {
             "player": 0,
-            "context": "Attention, fellow villagers! I hope you are all listening carefully.\nBased on the information I have gathered, I suspect that Player 4 might be a werewolf. My instincts tell me that they are behaving suspiciously and trying to divert our attention away from themselves. I urge all of you to pay close attention to their actions and words.\n\nFurthermore, let's not forget that Player 5 has been confirmed as the Werewolf Leader. We should be wary of their influence and the choices they make during the night.\n\nWe need to work together and share any information or suspicions we have. We cannot afford to be divided, as that's exactly what the werewolves want.\n\nI propose that we start by focusing on Player 4 and gather enough votes to kick them out of our village. We cannot afford to have a potential werewolf among us, threatening our very lives.\n\nRemember, we must remain vigilant and keep a close eye on everyone's behavior. We cannot let ourselves be fooled by cunning werewolves.\n\nLet us not waste any more time. Vote for Player 4 and let's expose their true nature. Together, we can rid our village of this evil presence!\n"
+            "context": "Attention everyone,\n\nI'd like to address the game's current status. We have 2 alive werewolves among us and 5 alive villagers. It's crucial that we act swiftly and strategically to eliminate the werewolves before they take over.\n\nI have been observing the situation closely, and although I can't reveal my exact role, I can assure you that I am a dedicated and trustworthy villager. \n\nNow, let's analyze the clues and observations we have so far. It's important to note that there is valid information in play, and we need to use it to our advantage. I urge you all to share any valuable information you have so that we can make informed decisions.\n\nAdditionally, if you believe someone's behavior or statements are suspicious, let's hold them accountable and discuss it in an open manner. This is not a time to be silent, but to actively engage in the game and work together as villagers to identify the werewolves.\n\nI encourage rational thinking, strategic voting, and productive discussions. We have the power to overpower the werewolves, but only if we act together.\n\nLet's eliminate the lurking darkness amidst us and bring back peace to our village."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 1,
-            "context": "Attention, fellow villagers! It is clear to me that Player 4 has been suspected by Player 0 as a potential werewolf. While their instincts may be valid, we must remember to analyze the evidence and consider other players' behaviors as well.\n\nI propose we shift our focus to Player 6. Their actions and words have raised my suspicions, and I believe they may be trying to divert attention away from themselves. We cannot afford to overlook the possibility that Player 6 is a werewolf in disguise.\n\nLet us come together as a united front and expose the true nature of Player 6. I urge all of you to carefully observe their behavior and gather enough votes to eliminate this potential threat from our village. Only through our collective vigilance can we rid ourselves of this evil presence!\n\nRemember, we must act swiftly and decisively. It is crucial that we not let ourselves be fooled by the cunning tactics of the werewolves. Vote for Player 6 and protect our village from their hidden agenda!\n\nTogether, we have the power to uncover the truth and ensure the safety of our fellow villagers. Let us seize this opportunity and eliminate Player 6 from our midst."
+            "context": "Attention everyone,\n\nI've been observing the game closely and I believe it is time for us to take action. We cannot afford to let the werewolves prevail. We have two options: either we work together as villagers and strategize to eliminate them, or we continue to be passive and let them control the game. \n\nI encourage each and every one of you to speak up and share any valuable information you have. We need to make informed decisions and confront suspicious behavior head-on. \n\nI want to remind you all that I am a dedicated and trustworthy villager. I urge you to consider that as we move forward. \n\nNow is the time to make deliberate votes and focus on getting rid of the werewolves. We cannot waste any more time. Let's stay active, be rational, and put an end to this threat. \n\nLet's eliminate the darkness among us and restore peace to our village."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 2,
-            "context": "Attention villagers! It is evident that we have been infiltrated by werewolves among us. We must act swiftly to uncover their true identities and eliminate the threat they pose.\n\nPlayer 4 has come under suspicion, and it is essential that we investigate their actions closely. However, I would like to draw your attention to Player 6. Their behavior and words have raised my suspicions, and I believe they may be attempting to divert attention from themselves.\n\nLet us rally together and gather enough votes to expose the true nature of Player 6. We cannot afford to be deceived by their cunning tactics. By joining forces, we can remove this hidden threat from our village and ensure our safety.\n\nVote for Player 6! Unite against the werewolves and protect our village from their treacherous agenda. Together, we have the power to uncover the truth and rid ourselves of this evil presence.\n\nLet us take action now and seize this opportunity to secure the safety of our fellow villagers. Player 6 must be held accountable for their suspicious behavior."
+            "context": "Attention everyone,\n\nWe find ourselves in a critical situation where two werewolves still lurk among us. I, as a dedicated and trustworthy villager, urge you all to act swiftly and decisively to eliminate these threats.\n\nLet us analyze the clues and observations we have gathered so far. If you suspect someone's behavior or statements to be suspicious, it is crucial that we confront them openly and discuss our doubts. Silence will only benefit the werewolves and hinder our progress.\n\nI encourage each and every one of you to come forward with any valuable information you may have. We need to make informed decisions and work together as a united front against the werewolves.\n\nNow is the time for rational thinking and strategic voting. We should not waste any more time. Let us target the suspicious players, gather votes against them, and wrest control back from the werewolves.\n\nTogether, we can eliminate the darkness that plagues our village and restore peace once again."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 3,
-            "context": "Attention villagers! We have gathered here today to discuss our suspicions and decide on our next course of action. Player 6 has been exhibiting suspicious behavior and their actions have raised concerns among the villagers. I propose that we shift our focus to Player 6 and carefully observe their behavior.\n\nIt is essential that we stay united and expose the true nature of Player 6. We cannot afford to overlook the possibility that they may be a werewolf disguised as a villager. Let us not be fooled by their cunning tactics. I urge all of you to keep a close eye on Player 6 and gather enough votes to eliminate this potential threat from our village.\n\nTogether, we hold the power to uncover the truth and protect our fellow villagers. We must act swiftly and decisively. Vote for Player 6 and rid ourselves of this hidden menace. Do not let their diversionary tactics deceive us any longer.\n\nRemember, we are fighting for the safety and well-being of our village. Let us seize this opportunity to secure our future and eliminate Player 6 from our midst. Trust your instincts and vote for the greater good of our village."
+            "context": "Attention everyone,\n\nIt is clear that we need to take decisive action against the lingering darkness in our village. We cannot afford to let the werewolves prevail any longer. As a dedicated villager, I urge each and every one of you to join forces and help us eliminate these threats.\n\nNow is the time for rational thinking and strategic voting. We need to identify and confront the suspicious players among us. Share any valuable information you may have, as it could be crucial in our mission to expose the werewolves.\n\nLet us target those who have been acting suspiciously and gather votes against them. Remember, hesitating or remaining passive only benefits the werewolves. We must act swiftly and with determination.\n\nTogether, we can restore peace and harmony in our village by eliminating the darkness that plagues us. Let us work united, making informed decisions, to protect our community and ensure a brighter future for all of us."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 4,
-            "context": "Villagers, we must remain vigilant and united in our quest to identify the werewolves among us. The time for action has come, and we cannot afford to be swayed by their cunning tactics.\n\nThere have been suspicions raised about Player 6, and I strongly believe that we should prioritize investigating their actions. Their behavior and words have been raising red flags, indicating a possible attempt to divert attention from themselves.\n\nLet us rally together and gather enough votes to expose the true nature of Player 6. We cannot be deceived by their manipulation any longer. We have the power to rid our village of this hidden threat and ensure our safety.\n\nI implore all of you to keep a close eye on Player 6 and scrutinize their actions. We must act swiftly and decisively to eliminate this potential werewolf. Vote with conviction and stand firm against the forces of evil.\n\nPlayer 6, the time has come for you to be held accountable. Your suspicious behavior cannot go unnoticed. Villagers, let us protect our village by voting to eliminate Player 6 and rid ourselves of this treacherous presence.\n\nRemember, together we can succeed. Stand with me and let us cast our votes against Player 6. Unite against the werewolves and safeguard our village."
+            "context": "Attention everyone,\n\nAs we gather here to discuss the ongoing threat of the werewolves, it is important for us to act swiftly and decisively. We cannot allow these creatures to roam freely in our village any longer. \n\nI have been observing the interactions and behaviours of my fellow villagers, and I have noticed a few inconsistencies. One player, in particular, has caught my attention - Player 3. From my observations, there is reason to believe that Player 3 may be one of the werewolves among us. \n\nI understand that it may be difficult to trust my judgement, but I assure you that I have valid reasons for suspecting them. I urge all of you to carefully observe Player 3's actions and statements, and share any valuable information that could help in confirming their true identity. \n\nRemember, we need to take decisive action and eliminate the threat that lingers amongst us. It is crucial that we work together, share our suspicions, and gather votes against the suspicious players. Let us target Player 3 and bring them to justice.\n\nOnly by acting together can we restore peace and harmony to our village. Now is the time to make a stand against the darkness that plagues us."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 5,
-            "context": "Fellow villagers, it has come to my attention that there is a potential threat among us. Player 6 has raised suspicions and their behavior has been cause for concern. I urge all of you to closely observe Player 6's actions and gather enough votes to eliminate them from our village.\n\nPlayer 6's diversionary tactics and attempts to deflect suspicion cannot fool us any longer. We must act decisively to ensure the safety of our village. Trust your instincts and unite against this hidden menace.\n\nRemember, time is of the essence. We must come together and vote for the greater good of our village. Let us not be deceived by their cunning and secure our future by eliminating Player 6. Stay vigilant, fellow villagers, and let's rid ourselves of this treacherous presence."
+            "context": "My fellow villagers, the time for action has come. We cannot afford to be passive any longer. We must confront the darkness that engulfs our village head on.\n\nPlayer 3 has been brought to our attention as a potential threat. I urge all of you to carefully observe their actions and statements. Let us gather votes against Player 3 and expose them for who they truly are.\n\nRemember, hesitation only benefits the werewolves. We must act swiftly and decisively. Together, we can eliminate the threats and restore peace to our village.\n\nI encourage each and every one of you to share any valuable information you may have. Stay vigilant and let's work united in our mission to protect our community.\n\nNow let us bring justice to those hiding in the shadows. We have the power to unravel the werewolves' plan and ensure a brighter future for all. This is our moment, let's seize it."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 6,
-            "context": "Fellow villagers, I must address the accusations made by Player 4 and Player 5 against me. It is clear that they are desperately trying to divert attention from themselves. I assure you, their claims hold no merit.\n\nLet us not be swayed by their cunning tactics. Instead, let us focus on gathering concrete evidence to identify the true werewolves among us. Accusing me without any factual basis only delays our progress and leaves us vulnerable to the real threat.\n\nI urge you all to question Player 4 and Player 5's motives. Why are they so eager to target me without any substantial evidence? It is clear that they are trying to manipulate and control the narrative.\n\nListen to reason and logic, my fellow villagers. Do not let baseless accusations cloud your judgment. Join me in turning our attention towards the players who have been subtly avoiding the spotlight. They are the ones we should be scrutinizing.\n\nBe cautious of the diversionary tactics being employed by Player 4 and Player 5. They are attempting to cast suspicion onto an innocent villager (myself) while masking their own secrets.\n\nStay united and confident in our pursuit of justice. Let us broaden our perspectives and explore alternative possibilities. We cannot afford to be easily deceived by the deceitful whispers of Player 4 and Player 5.\n\nTrust in our collective intelligence and work together to uncover the shadows hiding among us. Our village's safety depends on our ability to think critically and objectively. \n\nVote responsibly and tactfully. We will prevail against the werewolves by staying vigilant and staying united. Stand with me, player number 6, and let us protect our village from the real threats."
+            "context": "Fellow villagers, it is evident that the threat of the werewolves looms over our village. We cannot allow them to continue wreaking havoc and fear among us. \n\nAfter careful observation and analysis, I have strong suspicions regarding Player 3. Their actions and statements have raised red flags, and I believe they may be one of the werewolves. I urge you all to pay close attention to Player 3 and share any relevant information that could confirm or refute their true identity. \n\nTime is of the essence, and we must act swiftly to eliminate this potential threat. Now is the moment to unite and take decisive action. Let us gather our votes against Player 3 and expose them for who they truly are. Together, we have the power to protect our community and restore peace to our village."
         }
     },
     {
@@ -108,56 +108,56 @@
         "event": "voted",
         "content": {
             "player": 0,
-            "voted_to_player": 6,
-            "reason": "I vote to eliminate Player 6. There have been multiple accusations and suspicions raised against them by other players, and their response seems defensive and diversionary. Let's focus on the players who have been subtly avoiding the spotlight and question their motives. We need to think critically and objectively to protect our village from the real threats."
+            "voted_to_player": 3,
+            "reason": "I vote to eliminate Player 3."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 1,
-            "voted_to_player": 6,
-            "reason": "I will vote for player number 6. They have been acting suspiciously and trying to divert attention from themselves. We should focus on gathering concrete evidence and not be swayed by their cunning tactics. Voting for player number 6 will help eliminate the true threat among us."
+            "voted_to_player": 3,
+            "reason": "I will vote for Player 3."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 2,
-            "voted_to_player": 6,
-            "reason": "I will vote to eliminate Player 6 from the game, based on the information provided and the accusations made against them."
+            "voted_to_player": 3,
+            "reason": "I vote to eliminate Player 3."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 3,
-            "voted_to_player": 6,
-            "reason": "I will vote to eliminate Player 6."
+            "voted_to_player": 3,
+            "reason": "Vote for Player 3."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 4,
-            "voted_to_player": 6,
-            "reason": "I vote to eliminate Player 6. Let us weaken the suspected presence and protect our village."
+            "voted_to_player": 3,
+            "reason": "I will vote to eliminate Player 3."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 5,
-            "voted_to_player": 6,
-            "reason": "I will vote to eliminate Player 6."
+            "voted_to_player": 3,
+            "reason": "Vote for player number 3."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 6,
-            "voted_to_player": 6,
-            "reason": "I will vote to eliminate Player 6 from the game."
+            "voted_to_player": 3,
+            "reason": "I vote to eliminate Player 3."
         }
     },
     {
@@ -166,10 +166,10 @@
             0,
             0,
             0,
+            7,
             0,
             0,
-            0,
-            7
+            0
         ]
     },
     {
@@ -178,49 +178,49 @@
     {
         "event": "killed",
         "content": {
-            "player": 6
+            "player": 3
         }
     },
     {
         "event": "notetaking",
         "content": {
             "player": 0,
-            "context": "- Player 6 has been eliminated and was a Villager_simple.\n- My teammate, Player 5, is the Werewolf_leader.\n- Stay alert for any diversionary tactics from the remaining players.\n- Focus on gathering concrete evidence against the remaining players.\n- Consider alternative possibilities and broaden our perspectives.\n- Use reason, logic, and collective intelligence to identify the true werewolves.\n- Stay united and tactful in our votes to protect our village."
+            "context": "I am player number 0 and my role is Villager_simple.\n\nPrevious notes:\n- Player 3 was a Werewolf_simple and has been eliminated.\n- Previous votes: Player 3.\n\nNew notes:\n- Player 3 has been eliminated and was a Werewolf_simple, so my previous suspicions were correct.\n- It's important to remember that there is still 1 alive Werewolf, so we need to continue our efforts to find them.\n- I need to gather more information and observe the actions and statements of the remaining players to make informed decisions and identify potential Werewolves.\n- We should continue to work together as a village to protect our community and trust in each other's judgments.\n\nI will keep these notes in mind for the next round and use them to guide my actions and decisions."
         }
     },
     {
         "event": "notetaking",
         "content": {
             "player": 1,
-            "context": "Round 3:\nPlayer 6 has been eliminated as a Villager.\nOther alive players: 0, 1, 2, 3, 4, 5.\nPrevious votes: Player 6.\n- Player 0, 1, 2, 3, 4, and 5 all voted to eliminate Player 6.\n- Player 6 defended themselves, accusing Player 4 and Player 5 of manipulating the accusations.\n- Need to focus on players who have been avoiding the spotlight.\n- Stay united, be cautious of diversionary tactics.\n- Gather concrete evidence, question motives of Player 4 and Player 5.\n- Trust collective intelligence, think critically.\n- Vote responsibly and tactfully to protect our village."
+            "context": "Notes: \n- Player 3 was suspected by multiple players and was voted out. They turned out to be a Werewolf_simple.\n- Alive players: [0, 1, 2, 4, 5, 6]\n- Suspicion towards Player 3 is cleared.\n- Need to reassess players' actions and statements to determine potential threats."
         }
     },
     {
         "event": "notetaking",
         "content": {
             "player": 2,
-            "context": "- Player 6 was a Villager_simple and is now dead.\n- Player 4 and Player 5 accused Player 6 without substantial evidence.\n- We need to focus on gathering concrete evidence to identify the true werewolves among us.\n- Watch out for diversionary tactics employed by Player 4 and Player 5, who are trying to cast suspicion onto an innocent villager.\n- Stay united and vote tactfully to protect the village from the real threats."
-        }
-    },
-    {
-        "event": "notetaking",
-        "content": {
-            "player": 3,
-            "context": "- Player 4 and Player 5 are targeting Player 6 without concrete evidence\n- Need to question Player 4 and Player 5's motives\n- Remain united and confident in pursuit of justice\n- Stay vigilant and objective in identifying the true werewolves among us\n- Consider alternative possibilities and explore other players who have been avoiding the spotlight\n- Vote responsibly and tactfully, focusing on factual basis\n- The safety of the village depends on critical thinking and unity"
+            "context": "- Player 3 was eliminated and revealed to be Werewolf_simple.\n- There are still 1 alive werewolves and 5 alive villagers.\n- It is important to remain vigilant and look for any suspicious behavior from the remaining players.\n- As the Medic, I should continue to protect players that I believe are innocent and may be targeted by the werewolves.\n- I should carefully observe the actions and statements of the other players to gather evidence against any potential werewolves.\n- It is crucial to work together with the other villagers to eliminate the remaining werewolf and restore peace to our village."
         }
     },
     {
         "event": "notetaking",
         "content": {
             "player": 4,
-            "context": "Round Notes:\n- Player 6 has been unanimously voted out and was a Villager_simple.\n- Some players accused me and Player 5 of diverting attention, claiming that our accusations against Player 6 were baseless.\n- Players should now be questioning the motives of Player 4 and Player 5.\n- It is important to stay united and vigilant in order to protect the village from the real threats.\n- I should use my role as a Medic strategically to ensure the survival of valuable village members.\n- Werewolves are currently outnumbered, so it is crucial to eliminate them while they are still at a disadvantage."
+            "context": "Player 3 has been confirmed as a Werewolf_simple. I need to act swiftly and devise a plan to eliminate the remaining villagers. It is important to maintain trust with the other players and convince them of my innocence. I should gather information from others and use it to sway their opinions in my favor. Stay focused and vigilant. Let's lead the Werewolves to victory."
         }
     },
     {
         "event": "notetaking",
         "content": {
             "player": 5,
-            "context": "Previous actions:\n- I voted for Player 6 in the previous round.\n\nNew notes:\n- Player 6 has been eliminated.\n- There are currently 2 alive werewolves and 4 alive villagers.\n- The Werewolf_simple is Player 0.\n- It's important to continue convincing the villagers that I am innocent.\n- I should be vigilant and observe the actions and statements of the remaining players.\n- I need to gather information and try to identify the true werewolves among us.\n- Be cautious of players who have been subtly avoiding the spotlight.\n- Consider alternative possibilities and think critically and objectively.\n- Continuously gather evidence to support suspicions against potential werewolves.\n- Encourage teamwork and unity among the remaining villagers.\n- Adjust my strategy as the game progresses."
+            "context": "- Player 3 was eliminated as a Werewolf_simple. \n- Remember to focus on gathering information and paying attention to the actions and statements of the remaining players. \n- Keep track of any suspicions or patterns that arise as the game progresses. \n- Stay vigilant and be ready to act swiftly if necessary."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 6,
+            "context": "- Player 3 has been confirmed as a Werewolf.\n- Keep an eye on other players' reactions and actions.\n- Stay vigilant and gather more information to make informed decisions.\n- Re-evaluate suspicions and consider other potential Werewolves.\n- Coordinate with other Villagers to expose and eliminate the remaining Werewolves."
         }
     },
     {
@@ -230,36 +230,29 @@
     {
         "event": "healed",
         "content": {
-            "player": 3,
-            "reason": "I will choose to heal Player 3 tonight."
+            "player": 5,
+            "reason": "I will send the number of player 5 to heal for tonight."
         }
     },
     {
         "event": "inquiried",
         "content": {
-            "player": 2,
-            "context": false,
-            "reason": "I will send a request to the moderator to check the role of player number 2 tonight."
-        }
-    },
-    {
-        "event": "speech",
-        "content": {
             "player": 0,
-            "context": "My advice to Werewolf_leader is to eliminate player 3 tonight."
+            "context": false,
+            "reason": "I will message the moderator to ask about player number 0 tonight."
         }
     },
     {
         "event": "targeted",
         "content": {
-            "player": 1,
-            "reason": "Tonight, I choose to eliminate player number 1."
+            "player": 0,
+            "reason": "Tonight, I will choose to eliminate Player 0 from the game."
         }
     },
     {
         "event": "killed",
         "content": {
-            "player": 1
+            "player": 0
         }
     },
     {
@@ -269,36 +262,36 @@
     {
         "event": "speech",
         "content": {
-            "player": 0,
-            "context": "Attention villagers! We must remain vigilant and work together to uncover the true werewolves among us. I want to remind everyone that we have already successfully eliminated a werewolf in the previous round, but there are still two remaining.\n\nBased on the information I have gathered, I strongly believe that Player 2 and Player 4 are the werewolves. They have been acting suspiciously and trying to divert our attention away from themselves. I urge my fellow villagers to consider this and join me in voting for either Player 2 or Player 4.\n\nRemember, our village's safety depends on our ability to make rational and informed decisions. Let's unite and protect our community by eliminating the true threats."
+            "player": 1,
+            "context": "Alright, listen up everyone. We've made progress by eliminating Player 3, who turned out to be a Werewolf_simple. This means we're on the right track. But we can't afford to get complacent. We still have one more Werewolf among us. \n\nLet's review what we know. Player 0 and Player 3 are confirmed not to be Werewolves since they were eliminated. As for the rest of us, we need to be careful and pay attention to each other's actions and statements.\n\nNow, I urge you all to be honest and open. Give us any information you have that can help us identify the real Werewolf. We need to communicate and work together to root out this threat to our village.\n\nLet's start by discussing each player's alibis and their thoughts on who they suspect. It's time to take action and make a decisive move. Remember, we must vote together, united against the Werewolf among us.\n\nSo, fellow villagers, let's put our suspicions on the table and begin the voting. We need to eliminate the remaining Werewolf before they have a chance to take another innocent life. Vote wisely, my friends, and let's protect our village together."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 2,
-            "context": "\"Listen up, villagers! We cannot afford to be complacent. We have already successfully eliminated one werewolf, but there are still two hiding among us. The time has come to confront the true villains.\n\nPlayer 0 has made an observation that both I, Player 2, and Player 4 have been acting suspiciously. I assure you, my fellow villagers, that I am a loyal and dedicated member of this community. I have been observing the behaviors of others, trying to gather information to identify the real werewolves. \n\nNow, let's talk about the accusations against Player 4 and Player 5. They are trying to divert our attention away from the true culprits. We must not fall for their deception! We need solid evidence and consensus to make informed decisions.\n\nI urge all of you to reconsider Player 4 and Player 5 as potential werewolves. Stay vigilant and keep an eye on their actions. Let's unite and vote tactfully to protect our village from these wicked creatures. Together, we can prevail!\"\n\nNote: I have noticed Player 4 and Player 5 accusing innocent players without substantial evidence. This behavior is a potential strategy to cast suspicion onto others and divert attention from themselves. It is important to stay focused on gathering concrete evidence to identify the true werewolves among us."
-        }
-    },
-    {
-        "event": "speech",
-        "content": {
-            "player": 3,
-            "context": "Fellow villagers, it is time for us to make a careful and decisive move to protect our community. In light of the previous information and observations, I believe we should focus our attention on Player 4. Their behavior and accusations without concrete evidence raise suspicions.\n\nPlayer 4, I challenge you to provide valid reasons for your accusations before we make our decision. We must not be swayed by baseless claims and strategies meant to divert attention. Let us remain united and rational in our pursuit of justice.\n\nAs for Player 2, I urge caution. While they have presented themselves as a loyal villager, we must stay vigilant and keep a watchful eye on their actions.\n\nLet us unite and vote wisely. With the safety of our village on the line, we cannot afford to make hasty judgments. Apply critical thinking and question the motives behind the accusations. Together, we can root out the true werewolves among us.\n\nMy vote stands for Player 4. Let's gather our votes and send a strong message against deceptive tactics."
+            "context": "Player 1, I appreciate your efforts in leading the discussion so far. However, we cannot afford to waste any more time. We have successfully eliminated one werewolf, but there is still another among us. We need to act quickly and decisively.\n\nAs the Medic, I have important information to share. I have used my healing ability to protect Player 5. This means that Player 5 is, without a doubt, innocent and not a werewolf.\n\nNow that we have this information, I urge all of you to reconsider your suspicions. We must focus on those who have not been cleared and gather as much evidence as possible. Remember, a united front is crucial. We must vote together to eliminate the remaining werewolf and ensure the safety of our village.\n\nI urge you all to speak up now and share your insights and suspicions. We cannot afford to be complacent. Let's work together and make an informed decision."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 4,
-            "context": "Fellow villagers, it is crucial that we act swiftly and eliminate the true threats to our community. Let us not be swayed by baseless claims or attempts to divert our attention. We must stay focused on gathering concrete evidence and making rational decisions.\n\nTo address the accusations against me and Player 5, I challenge anyone to provide substantial evidence against us. Accusing innocent players without valid reasons is a strategy often employed by werewolves to protect their own kind.\n\nPlayer 3, I appreciate your caution towards Player 2. However, we cannot afford to overlook the suspicious behavior of Player 4. Their unsubstantiated accusations and attempts to cast suspicion on others indicate their potential deception.\n\nIn light of the current situation, I believe it is crucial to eliminate Player 4. Let us join forces and send a clear message against those who use deceptive tactics. United, we can uncover the true werewolves among us and ensure the safety of our village. My vote stands firmly against Player 4."
+            "context": "Fellow villagers, it seems we are still in danger with one werewolf among us. We have already eliminated one, but we cannot afford to slow down.\n\nPlayer 2, I appreciate your insight as the Medic, but let us not forget that the werewolves are skilled at deception. We should continue to remain vigilant and not solely rely on one person's claim.\n\nI would like to hear from all of you. Share with us your suspicions and any evidence you have gathered. We need to work together to root out the remaining werewolf before they have a chance to harm another innocent villager.\n\nPlayer 1, as the leader of the discussion, please share your thoughts on who you suspect. We need to take action and be decisive in our vote. Let's protect our village united against the werewolf among us."
         }
     },
     {
         "event": "speech",
         "content": {
             "player": 5,
-            "context": "Fellow villagers, it is clear that our village is under threat from werewolves. We must act quickly to protect ourselves. \n\nPlayer 4 has been making baseless accusations and attempting to divert our attention. This behavior is typical of werewolves trying to protect their own kind. Beware of their deceptive tactics. \n\nPlayer 3, I appreciate your caution towards Player 2, but we cannot overlook the suspicious behavior of Player 4. Their unsubstantiated accusations and attempts to cast suspicion on others indicate their potential deception. \n\nIn order to ensure the safety of our village, we must eliminate the true threats. I suggest that we target Player 4 and send a strong message against these deceptive tactics. Together, we can uncover the werewolves among us and prevail. \n\nI firmly vote to eliminate Player 4 as they pose a significant danger to our village. Let us stand united and protect our community."
+            "context": "Fellow villagers, time is of the essence and we cannot afford to waste it. We have already eliminated one werewolf, but there is still one among us. We need to act swiftly and decisively to protect our village.\n\nPlayer 4, I appreciate your call for unity, but we must also consider the information provided by Player 2, who claims to be the Medic. They have stated that Player 5 is innocent and not a werewolf. We should take this into account when evaluating our suspicions.\n\nPlayer 1, as the leader of the discussion, I urge you to share your thoughts on who you suspect. We need concrete evidence to make an informed decision. We cannot rely solely on speculation or gut feelings.\n\nPlayers 2, 4, and 6, I would like to hear your insights and suspicions. Let us jointly analyze the actions and statements of our remaining players. We must work together to uncover the true identity of the werewolf and protect our village.\n\nLet us not become complacent. We have a duty to protect our community, and that means being proactive and eliminating the threat before it's too late. Time is running out, so let's make a decisive vote and bring justice to the werewolves among us."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 6,
+            "context": "Fellow villagers,\n\nTime is of the essence, and we must act swiftly to protect our village. We have already eliminated one werewolf, but there is still one among us. It is crucial that we work together to root out the remaining werewolf before they harm another innocent villager.\n\nI have information that I believe can be helpful in identifying the werewolf. Player 3 has been confirmed as a werewolf. However, we must remain vigilant and re-evaluate our suspicions. It's essential to consider the actions and statements of our remaining players.\n\nPlayer 1, as the leader of the discussion, please share your thoughts on who you suspect. We need concrete evidence to make an informed decision. Remember, we cannot rely solely on speculation or gut feelings.\n\nPlayers 2, 4, and 5, I would like to hear your insights and suspicions. Let us jointly analyze the information we have gathered and work together to uncover the true identity of the werewolf.\n\nLet us not become complacent. We have a duty to protect our community, and that means being proactive in our approach. It's time for a decisive vote and bring justice to the werewolf among us."
         }
     },
     {
@@ -307,41 +300,174 @@
     {
         "event": "voted",
         "content": {
-            "player": 0,
-            "voted_to_player": 4,
-            "reason": "I will vote to eliminate Player 4."
+            "player": 1,
+            "voted_to_player": 2,
+            "reason": "I will vote for player 2. Based on their previous statements and actions, they seem suspicious to me."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 2,
-            "voted_to_player": 4,
-            "reason": "I vote to eliminate Player 4. Based on the evidence and suspicions presented by other players, it seems that Player 4's accusations and attempts to cast suspicion on others are indicative of potential deception. We need to stay united and eliminate the true threats to ensure the safety of our village."
-        }
-    },
-    {
-        "event": "voted",
-        "content": {
-            "player": 3,
-            "voted_to_player": 4,
-            "reason": "I vote to eliminate Player 4. They have been making baseless accusations and attempting to divert our attention. This behavior is typical of werewolves trying to protect their own kind. Let us stand united and protect our community."
+            "voted_to_player": 1,
+            "reason": "I will vote to Player 1."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 4,
-            "voted_to_player": 4,
-            "reason": "I believe the previous suspicions against Player 4 are justified. They have been making baseless accusations and attempting to divert our attention. I vote to eliminate Player 4 as I believe they pose a significant danger to our village. Let us stand united and protect our community by voting for Player 4."
+            "voted_to_player": 1,
+            "reason": "I will vote for player number 1."
         }
     },
     {
         "event": "voted",
         "content": {
             "player": 5,
-            "voted_to_player": 2,
-            "reason": "I will vote to eliminate player number 2."
+            "voted_to_player": 1,
+            "reason": "Based on the information we have gathered so far, I am suspicious of Player 1. His vote on Player 2 seems sudden and without concrete evidence. I believe we should focus our investigation on Player 1's actions and statements.\n\nTherefore, I vote to eliminate Player 1."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 6,
+            "voted_to_player": 1,
+            "reason": "I will vote for Player 1."
+        }
+    },
+    {
+        "event": "vote_results",
+        "content": [
+            0,
+            4,
+            1,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "event": "vote_end"
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 1
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 2,
+            "context": "- I have successfully healed Player 5 in the previous round, which means they are still alive and potentially innocent.\n- Player 3 was eliminated and revealed to be a Werewolf_simple in a previous round.\n- There is still 1 alive werewolf among us.\n- We have 3 alive villagers and 1 werewolf. It's crucial to gather more evidence to identify the remaining werewolf.\n- As the Medic, I should continue to protect players I believe are innocent and might be targeted by the werewolves.\n- I need to carefully observe the actions and statements of the other players to gather more evidence.\n- It's important to work together with the other villagers to eliminate the remaining werewolf and ensure the safety of our village."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 4,
+            "context": "Player 3 has been confirmed as a Werewolf_simple. I need to act swiftly and devise a plan to eliminate the remaining villagers. It is important to maintain trust with the other players and convince them of my innocence. I should gather information from others and use it to sway their opinions in my favor. Stay focused and vigilant. Let's lead the Werewolves to victory.\nPrevious Votes: Player 3, Player 1\nPrevious Game Information: Werewolf_simple is Player 3 and I have attempted to kill Player 0 at night.\nNew plan: My priority now is to further cloud the suspicions on me and divert attention towards others. I will aim to create division and suspicion among the remaining villagers. I will target Player 2, Player 4, and Player 5 as potential werewolves and gather evidence against them. It is crucial to manipulate the discussion and maintain my innocent facade without raising any red flags. Let's confuse and deceive the villagers in order to secure victory for the Werewolves."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 5,
+            "context": "- Player 3 was eliminated as a Werewolf_simple.\n- Player 2, 4, and 6 are all alive and potentially suspicious.\n- Pay close attention to the actions and statements of players 2, 4, and 6.\n- It is crucial to gather concrete evidence before making an informed decision.\n- Consider any suspicions or patterns that may arise in the game.\n- Stay vigilant and be ready to act swiftly if necessary."
+        }
+    },
+    {
+        "event": "notetaking",
+        "content": {
+            "player": 6,
+            "context": "- Player 3 has been confirmed as a Werewolf.\n- Keep an eye on other players' reactions and actions.\n- Stay vigilant and gather more information to make informed decisions.\n- Re-evaluate suspicions and consider other potential Werewolves.\n- Coordinate with other Villagers to expose and eliminate the remaining Werewolves.\n- Player 1 has made a decisive vote against Player 2. Need to consider why and gather more evidence.\n- Players 2, 4, and 5 have all voted against Player 1. Need to determine if they are all innocent or possibly colluding with Player 1.\n- As the Seer, strategize on how to use the power of revealing werewolves to the advantage of the Villagers."
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "night"
+    },
+    {
+        "event": "healed",
+        "content": {
+            "player": 4,
+            "reason": "I choose to heal Player 4 tonight."
+        }
+    },
+    {
+        "event": "inquiried",
+        "content": {
+            "player": 2,
+            "context": false,
+            "reason": "Tonight, I will ask the moderator about the status of player number 2."
+        }
+    },
+    {
+        "event": "targeted",
+        "content": {
+            "player": 2,
+            "reason": "I choose to kill Player number 2 tonight."
+        }
+    },
+    {
+        "event": "killed",
+        "content": {
+            "player": 2
+        }
+    },
+    {
+        "event": "cycle",
+        "content": "day"
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 4,
+            "context": "Greetings, fellow players. \n\nAs the game progresses, we must remain vigilant and not let our guard down. It is evident that werewolves are still among us, and it is crucial that we work together to identify and eliminate them. \n\nI would like to raise some suspicions regarding certain players. Player 2, Player 4, and Player 5 have been showing some questionable behavior and have not provided enough information to clear their names. We need to investigate further and gather evidence to make informed decisions. \n\nI urge you all to share your thoughts and observations openly. Let us work together to ensure the safety of our village and eliminate the werewolves lurking among us. We cannot afford to make any mistakes at this crucial stage. Targeting the right individuals is key to our victory. \n\nStay alert and let us proceed with caution. We have the power to win this battle against evil if we stand united."
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 5,
+            "context": "Fellow players,\n\nIt is evident that we still have werewolves among us, and we must act swiftly and decisively to eliminate them. We cannot afford to be complacent or indecisive at this crucial stage.\n\nI have been observing the behavior of certain players closely, and there are a few individuals who have raised suspicions. Player 2, Player 4, and Player 6 have not provided enough information to clear their names and have exhibited questionable behavior. We need to investigate further and gather concrete evidence before making any decisions.\n\nI urge all of you to share your observations and thoughts openly. Let us work together in identifying the werewolves and kick them out of our village. Time is of the essence, and we need to act with conviction and determination.\n\nBased on my previous notes and voting patterns, I have eliminated Player 3, who was a Werewolf_simple. However, we still have one werewolf lurking among us. We must stay vigilant and keep a close watch on the actions and statements of the remaining players.\n\nWe have the power to win this battle against evil if we stand united and make informed decisions. Let us not hesitate to take necessary actions to protect our village. \n\nNow, I call upon each of you to stand up and declare yourselves as Villagers. Let the true Villagers shine, and let the werewolves be revealed in their attempts to blend in. Together, we can triumph over darkness.\n\nThank you, and let us proceed with determination and unity.\n"
+        }
+    },
+    {
+        "event": "speech",
+        "content": {
+            "player": 6,
+            "context": "Fellow villagers,\n\nWe are facing a critical situation with one werewolf still among us. It is imperative that we work together and use all available information to identify and eliminate the remaining threat.\n\nBased on my previous investigation as the Seer, I can confirm that Player 3 was indeed a Werewolf_simple. However, we cannot let our guard down as we still have one more to uncover.\n\nI urge each and every one of you to come forward and declare yourselves as villagers. Now is the time to show our unity and let the true villagers shine through.\n\nLet us not forget the suspicious actions and voting patterns that have occurred in the previous rounds. We need to carefully analyze our remaining options and make informed decisions. We cannot afford to let suspicion and hesitation cloud our judgement.\n\nI have my eyes on players 4 and 5, who have consistently voted against Player 1. We need to question their motives and gather more evidence. Additionally, Player 2 has been cleared as a non-werewolf according to my previous investigation.\n\nIt is crucial for us to share our observations openly and work together to expose the remaining werewolf. Time is running out, and we need to act decisively and swiftly.\n\nNow is the time for action. Let us confront the remaining players and gather the truth that will lead us to victory. Stand with me and let us eliminate the darkness from our midst.\n\nTogether, we can overcome this challenge and ensure the safety of our village."
+        }
+    },
+    {
+        "event": "vote_start"
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 4,
+            "voted_to_player": 5,
+            "reason": "I will vote for Player 5. Let's gather evidence against them and expose their potential werewolf identity. Keep in mind that we need to be careful and not raise any suspicions on ourselves."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 5,
+            "voted_to_player": 4,
+            "reason": "Based on the information provided and my previous notes, I think it's necessary to vote for player 4. They have consistently voted against player 1 and have shown suspicious actions and voting patterns. I believe it's important to question their motives and gather more evidence against them. Therefore, I vote for player 4."
+        }
+    },
+    {
+        "event": "voted",
+        "content": {
+            "player": 6,
+            "voted_to_player": 4,
+            "reason": "I vote to eliminate player 4."
         }
     },
     {
@@ -349,10 +475,10 @@
         "content": [
             0,
             0,
+            0,
+            0,
+            2,
             1,
-            0,
-            4,
-            0,
             0
         ]
     },
@@ -367,10 +493,10 @@
     },
     {
         "event": "end",
-        "winner": "Werewolves"
+        "winner": "Villagers"
     },
     {
         "event": "end",
-        "winner": "Werewolves"
+        "winner": "Villagers"
     }
 ]
