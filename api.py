@@ -1,6 +1,7 @@
 # CONFIG YOUR API HERE : 
 RATE_LIMIT = 20 # sleeping time for openai per minute limitation
 TOKEN_LIMIT = 5000 # token limit per message
+TEMPERATURE = 1
 MODEL = 'gpt-3.5-turbo'
 
 import openai, os, time
@@ -28,7 +29,7 @@ def send_message(intro , game_report , command , token_limit=TOKEN_LIMIT , time_
     response = openai.ChatCompletion.create(
         model=MODEL,
         messages=context,
-        temperature=1.2
+        temperature=TEMPERATURE
     )
     # just for debugging in terminal
     print(f"""
