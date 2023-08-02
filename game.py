@@ -119,14 +119,14 @@ memory = []
 def day() :
     report = [] 
     for i in alives_index :
-        res = send_message(render_game_intro(i), render_game_report(i , report) , render_speech_command())
+        res = send_message(render_game_intro(i), render_game_report(i , report) , render_speech_command()).replace('\n' , ' ')
         report.append(f"""Player {i} : 
 {res}""")
         log.append({'event' : 'speech' , 'content': {'player':i , 'context':res}})
     votes = [0]*7
     log.append({'event':'vote_start'})
     for i in alives_index : 
-        res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number. You must not vote to yourself")
+        res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number. You must not vote to yourself. if you don't want to vote anyone just send an empty response.")
         nums_in_res = re.findall(r'\d+', res)
         if len(nums_in_res) > 0 :
             num = int(nums_in_res[0]) 
