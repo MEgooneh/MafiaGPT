@@ -152,6 +152,7 @@ def day() :
 def night() :
     report = memory
     healed_guy = None
+    advice = ""
     if players[roles.index('Medic')]['is_alive'] == True : 
         res = send_message(render_game_intro(roles.index('Medic')), render_game_report(roles.index('Medic') , report) , "Command : send the number of player who you want to heal for tonight. REMINDER: you must send an alive player number")
         healed_guy = int(re.findall(r'\d+', res)[0])
@@ -164,14 +165,18 @@ def night() :
         players[roles.index('Seer')]['special_actions_log'].append(f"You asked moderator that Player {inq} is Werewolf or not. the answer was : {is_werewolf}")
         players[roles.index('Seer')]['special_actions_log'].append(f"{inq} is Werewolf? : {is_werewolf}")
         log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context': is_werewolf , 'reason':res}})
-    if players[roles.index('Werewolf_simple')]['is_alive'] == True : 
+    if players[roles.index('Werewolf_leader')]['is_alive'] == 1 : 
+        now_leader = roles.index('Werewolf_leader')
+    else :
+        now_leader = roles.index('Werewolf_simple')  
+    if players[roles.index('Werewolf_simple')]['is_alive'] == True and now_leader == roles.index('Werewolf_leader') : 
         advice = send_message(render_game_intro(roles.index('Werewolf_simple')), render_game_report(roles.index('Werewolf_simple') , report) , "Command : send a short advice to Werewolf_leader to which player for eliminating for tonight")
         log.append({'event' : 'speech' , 'content': {'player': roles.index('Werewolf_simple'), 'context':advice}})
-    
-    res = send_message(render_game_intro(roles.index('Werewolf_leader')), render_game_report(roles.index('Werewolf_leader') , report) , "Command : JUST send the number of player who you want to kill for tonight. REMINDER: you must send an alive player number")
+
+    res = send_message(render_game_intro(now_leader), render_game_report(now_leader , report) , "Command : JUST send the number of player who you want to kill for tonight. REMINDER: you must send an alive player number and not yourteammate or yourself. also consider this advice : {advice}")
     targeted_guy = int(re.findall(r'\d+', res)[0])
     log.append({'event' : 'targeted' , 'content': {'player':targeted_guy , 'reason':res}})
-    players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"You have attemped to kill Player number {targeted_guy} at night.")
+    players[now_leader]['special_actions_log'].append(f"You have attemped to kill Player number {targeted_guy} at night.")
     if targeted_guy != healed_guy : 
         kill(targeted_guy)
     return
