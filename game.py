@@ -42,7 +42,8 @@ def game_end() :
     if werewolves_cnt == 0 : 
         log.append({'event':'end','winner':'Villagers'})
         ans = 1
-    logging()
+    if(log[-1]['event'] != 'end') : 
+        logging()
     return ans 
 
 def render_game_intro(player_number) : 
