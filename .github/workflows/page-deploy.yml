@@ -27,8 +27,8 @@ jobs:
             cp new.md docs/Samples/"$cnt".md
           done
           
-      - name: Install mkdocs
-        run: pip install mkdocs
+      - name: Install material for mkdocs
+        run: pip install mkdocs-material
 
       - name: Build documentation
         run: mkdocs build
