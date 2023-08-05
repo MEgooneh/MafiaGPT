@@ -23,7 +23,7 @@ jobs:
           cnt=0
           for file in Samples/*; do
             cnt=$((cnt + 1))
-            python log-to-readable.py "$file"
+            python log-to-readable-md.py "$file"
             cp new.md docs/Samples/"$cnt".md
           done
           
