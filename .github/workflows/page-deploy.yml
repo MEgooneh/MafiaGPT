@@ -1,0 +1,34 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Making log files readable and put them in docs
+        run:
+          cnt = 0
+          for file in Samples/*; do
+            cnt=$((cnt + 1))
+            python log-to-readable.py "$file"
+            cp new.md docs/Samples/"$cnt".md
+          done
+          
+      - name: Install mkdocs
+        run: pip install mkdocs
+
+      - name: Build documentation
+        run: mkdocs build
