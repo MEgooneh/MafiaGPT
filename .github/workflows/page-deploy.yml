@@ -20,7 +20,7 @@ jobs:
 
       - name: Making log files readable and put them in docs
         run: |
-          cnt = 0
+          cnt=0
           for file in Samples/*; do
             cnt=$((cnt + 1))
             python log-to-readable.py "$file"
