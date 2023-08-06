@@ -13,7 +13,7 @@ text = ""
 
 def emojing_roles(role) : 
     roles = ['Medic', 'Seer', 'Villager_simple', 'Werewolf_leader', 'Werewolf_simple']
-    roles_emoji = ['🩺','🔍','👤','👤','👤','😈','😈']
+    roles_emoji = ['🩺','🔍','👤','😈','😈']
     return role + roles_emoji[roles.index(role)]
 
 def results(votes) :
