@@ -4,17 +4,18 @@ on:
   push:
     branches:
       - master
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
 
@@ -26,9 +27,14 @@ jobs:
             python log-to-readable-md.py "$file"
             cp new.md docs/Samples/"$cnt".md
           done
-          
-      - name: Install material for mkdocs
-        run: pip install mkdocs-material
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material 
 
-      - name: Build documentation
-        run: mkdocs build
+
+      - run: mkdocs gh-deploy --force
