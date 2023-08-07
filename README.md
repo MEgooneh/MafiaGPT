@@ -1,7 +1,7 @@
 # MafiaGPT
 
 ## Recorded games
-There is some recorded games as sample in Sample folder as log file and in the github pages as markdown : [link](https://megooneh.github.io/MafiaGPT/site/Samples/1/)
+There is some recorded games as sample in Sample folder as log file and in the github pages as markdown : [link](https://megooneh.github.io/MafiaGPT/Samples/1/)
 
 ## Intro
 
