@@ -169,9 +169,9 @@ class Game():
     def check_votes(self):
         # [TODO] : debugging here
         votes = self.votes[-1]
-        if max(votes.values()) > 1 : 
+        if max(votes) > 1 : 
             votes_sorted = sorted(votes.items(), key=lambda x:x[1])
-            self.kill(self.alive_players[votes_sorted[-1]])
+            self.kill(self.alive_players[list(votes_sorted.keys())[-1]])
         if self.is_game_end(): # to check if game is over by votes 
             self.save_game()
         return
@@ -195,7 +195,7 @@ class Game():
                 self.logger.warning(f"{Player} skipped the voting")
         self.log_submit({'event':'vote_results' , 'content' : votes})
         self.log_submit({'event':'vote_end'})
-        self.votes.append(list(enumerate(votes)))
+        self.votes.append(dict(enumerate(votes)))
         self.check_votes()
         for Player in self.alive_players : 
             res = send_message(render.game_intro(Player), render.game_report(self, Player), render.notetaking_command())
