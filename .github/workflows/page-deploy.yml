@@ -22,10 +22,10 @@ jobs:
       - name: Making log files readable and put them in docs
         run: |
           cnt=0
-          for file in Samples/*; do
+          for file in records/*; do
             cnt=$((cnt + 1))
             python log-to-readable-md.py "$file"
-            cp new.md docs/Samples/"$cnt".md
+            cp new.md docs/records/"$cnt".md
           done
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v3
