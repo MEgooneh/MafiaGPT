@@ -18,8 +18,13 @@ class Player():
         res = send_message(render.game_intro(self), render.game_report(Game, self) , command +  "REMINDER: your message must include the number of player that you want to perform action on it.")
         nums_in_res = re.findall(r'\d+', res)
         if nums_in_res == [] :
+            Game.logger.warning("No player provided in targetting.")
             return (None, res)
-        return (int(nums_in_res[0]), res)
+        target = int(nums_in_res[0])
+        if target not in Game.alive_players : 
+            Game.logger.warning("Targeting a wrong player")
+            return (None, res) 
+        return (target , res)
     def vote(self, Game):
         target, reason = self.targeting(
             Game,
@@ -76,6 +81,7 @@ class Medic(Villager):
             self.special_actions_log.append(f"You have healed Player number {target}")
             Game.log_submit({'event' : 'healed' , 'content': {'player':target , 'reason':reason}})
 
+
 class Seer(Villager):
     def __init__(self, role, **kwargs):
         super().__init__(role, **kwargs)
@@ -92,12 +98,11 @@ class Seer(Villager):
             tag = "" if is_werewolf else "not"
             self.special_actions_log.append(f" Player {target} is {tag} werewolf")
             Game.log_submit({'event' : 'inquiried' , 'content': {'player':target , 'context': is_werewolf , 'reason':reason}})
-       
-        
 
 class Game():
     def __init__(self, id=1):
         self.id = id
+        self.all_players = []
         self.alive_players = []
         self.dead_players = []
         self.report = []
@@ -132,8 +137,9 @@ class Game():
         werewolves = self.get_alive_werewolves()
         for werewolf in werewolves:
             werewolf.special_actions_log.append(f"you are werewolf and this is your team (they are all werewolf) : {werewolves}")
+        self.all_players = self.alive_players
     def get_player(self, id):
-        return self.alive_players[id]
+        return self.all_players[id]
     def get_alive_werewolves(self):
         ls = list(filter(lambda player : player.type == "werewolf", self.alive_players))
         # to make sure that last werewolf will make the last decision
@@ -146,6 +152,9 @@ class Game():
     def get_alive_villagers(self):
         return list(filter(lambda player : player.type == "villager", self.alive_players))
     def kill(self, Player):
+        if Player not in self.alive_players:
+            self.logger.warning("Killing an already dead guy! Skipped!")
+            return
         self.alive_players.remove(Player)
         self.dead_players.append(Player)
         self.log_submit({'event' : 'killed' , 'content': {'player':Player.id}})
@@ -170,8 +179,8 @@ class Game():
         # [TODO] : debugging here
         votes = self.votes[-1]
         if max(votes) > 1 : 
-            votes_sorted = sorted(votes.items(), key=lambda x:x[1])
-            self.kill(self.alive_players[list(votes_sorted.keys())[-1]])
+            votes_sorted = dict(sorted(votes.items(), key=lambda x:x[1]))
+            self.kill(self.get_player(list(votes_sorted.keys())[-1]))
         if self.is_game_end(): # to check if game is over by votes 
             self.save_game()
         return
@@ -210,12 +219,12 @@ class Game():
         for medic in medics:
             medic.healing(self)
         for seer in seers:    
-            seer.inquiry(Game)
+            seer.inquiry(self)
         for werewolf in werewolves:
             if werewolf.rank == "leader":
-                werewolf.killing(Game)
+                werewolf.killing(self)
             else:
-                werewolf.advicing(Game)
+                werewolf.advicing(self)
         return
 
 
