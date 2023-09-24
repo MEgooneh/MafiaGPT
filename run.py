@@ -1,5 +1,5 @@
-from game import *
+from core import game
 
-new = Game()
+new = game.Game()
 new.set_players(['simple_villager']*3, ['werewolf']*2, ['medic'], ['seer'])
 new.run_game()

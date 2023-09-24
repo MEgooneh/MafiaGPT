@@ -1,5 +1,5 @@
 import random, logging
-from api import send_message
+from core.api import send_message
 import json, re
 from prompts import render_prompts as render
 
