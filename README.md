@@ -1,10 +1,5 @@
 # MafiaGPT
 
-## Recorded games
-There is some recorded games as sample in Sample folder as log file and in the github pages as markdown : [link](https://megooneh.github.io/MafiaGPT/Samples/1/)
-
-## Intro
-
 a program that moderate a [Mafia(Werewolf)](https://en.wikipedia.org/wiki/Mafia_(party_game)) game with 7 players between GPT models.
 
 to see communication, team work and social/logical abilities of GPT model.(it is fun and educational)
@@ -71,12 +66,14 @@ events are :
   'reason':"<complete response>"
 }
 ```
-- vote_start
-- vote_end
-- vote_results :
 
+- vote_start :
 ```javascript
-'content':"<votes_list>"
+'content':{
+  'player':"<player_number>"
+  'voted_to_player':"<player_number>"
+  'reason':"<complete response>"
+}
 ```
 
 - healed :

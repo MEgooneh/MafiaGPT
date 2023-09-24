@@ -1,194 +1,245 @@
-from random import shuffle
+import random, logging
 from api import send_message
 import json, re
-
-roles = ['Medic', 'Seer', 'Villager_simple', 'Villager_simple', 'Villager_simple', 'Werewolf_leader', 'Werewolf_simple']
-
-# random shuffling the roles
-
-shuffle(roles)
-
-#Create the players list
-
-players = [{'role' : role , 'is_alive' : True , 'special_actions_log' : [] , 'votes_log' : [] , 'notes' : ""} for role in roles]
-
-# adding essential variables
-
-log = [] #it will keep all logs and then dump it to 'log.json'
-werewolves_cnt = 2 #alive werewolves counter
-villagers_cnt = 5 #alive villagers counter
-alives_index = list(range(7)) # a list consisting of alive players number
+from prompts import render_prompts as render
 
 
-# let Werewolves to know their teammates
-players[roles.index('Werewolf_simple')]['special_actions_log'].append(f"Werewolf_leader .aka your teammate is Player {roles.index('Werewolf_leader')}")
-players[roles.index('Werewolf_leader')]['special_actions_log'].append(f"Werewolf_simple .aka your teammate is Player {roles.index('Werewolf_simple')}")
 
-
-# add players and their roles to log : 
-log += [{'event' : 'roles', 'content':{'player':i , 'role':roles[i]}} for i in range(7)]
-
-#logging function
-logging = lambda : json.dump(log , open('log.json' , 'w') , indent=4)
-
-def game_end() :
-    """
-     Will check that the game is over or not. 1 if it's over 0 otherwise
-    """ 
-    ans = 0 
-    if werewolves_cnt == villagers_cnt :
-        log.append({'event':'end','winner':'Werewolves'})
-        ans = 1 
-    if werewolves_cnt == 0 : 
-        log.append({'event':'end','winner':'Villagers'})
-        ans = 1
-    logging()
-    return ans 
-
-def render_game_intro(player_number) : 
-    """
-    Rendering game intro (The first message in every request to api) 
-    consisting of the rules and the player information
-    
-    """
-    io = open('intro_prompt.txt' , 'r')
-    return eval(io.read())
-
-def string_aliveness(player_number) : 
-    """
-    Showing the aliveness of players in better format for "render_game_report" function
-    
-    """
-    if players[player_number]['is_alive'] == True : 
-        return "ALIVE"
-    else :
-        return "DEAD"
- 
-def render_game_report(player_number , report) :
-    """
-    Rendering game report (The second message in every request to api) 
-    consisting of game status and the player special informations and what happened in the game till now
-    
-    """
-    aliveness = [f"Player {i} : " + string_aliveness(i) for i in range(7)] 
-    dead_players = [f"Player {i} was : {players[i]['role']}" for i in set(range(7))-set(alives_index)]
-    io = open('report_prompt.txt','r')
-    return eval(io.read())
-
-# a simple string to command player to speak
-
-def render_speech_command() : 
-    return """ATTENTION : 
-!!! You MUST NOT REVEAL your exact role. you can claim that you are villager(lie or true) but for example you shouldn't say : "I'm Medic"
-!!! there's no needage to remind rules to others. just focus on your own game and don't repeat things.
-!!! don't use repeatitive phrases. add something to the game. be short and direct. also be somehow aggressive and start targetting.
-NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
-
-# a simple string to command player to take a note of the game
-
-def render_notetaking_command(player_number) : 
-    return """
-Your notes as your memory and your strategy: 
-every player has a private notebook. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notebook will be only your last update and it will override. so try to summarise previous notes in new one too.
-    - You should be clear and summarise important actions in the round that you think it will help you in future. it should be SHORT and don't write unneccesary things in it.
-    - if you have something previously in your notebook that is not usable anymore (e.g about targeting someone that is no more alive) ignore that note and don't add it to new update.
-    - ONLY you can see your notes so you don't talk to others, just create your policies for next rounds. there is no needage to show your innocent. just fix your policy for yourself.
-NOW JUST SEND YOUR NEW VERSION OF NOTES : """
-
-
-def kill(player_number)  :
-    """
-    Will delete information of a player who has eliminated from the game.
-    """
-    global villagers_cnt , werewolves_cnt
-    if 'Werewolf' in roles[player_number] : 
-        werewolves_cnt -= 1
-    else :
-        villagers_cnt -= 1
-    alives_index.remove(player_number)
-    players[player_number]['is_alive'] = False
-    log.append({'event' : 'killed' , 'content': {'player':player_number}})
-
-# a temproray memory to have day's game report for night.
-memory = []
-
-############
-# game main functions 
-
-def day() :
-    report = [] 
-    for i in alives_index :
-        res = send_message(render_game_intro(i), render_game_report(i , report) , render_speech_command()).replace('\n' , ' ')
-        report.append(f"""Player {i} : 
-{res}""")
-        log.append({'event' : 'speech' , 'content': {'player':i , 'context':res}})
-    votes = [0]*7
-    log.append({'event':'vote_start'})
-    for i in alives_index : 
-        res = send_message(render_game_intro(i), render_game_report(i , report) , "Command: just send the number of the player that you want to vote for. REMINDER: you must send an alive player number. You must not vote to yourself. if you don't want to vote anyone just send an empty response.")
+class Player():
+    def __init__(self, id):
+        self.notes = ""
+        self.is_alive = True
+        self.id = id
+        self.votes = []
+        self.special_actions_log = []
+    def __str__(self):
+        return f"Player {self.id}"
+    def targeting(self, Game, command):
+        res = send_message(render.game_intro(self), render.game_report(Game, self) , command +  "REMINDER: your message must include the number of player that you want to perform action on it.")
         nums_in_res = re.findall(r'\d+', res)
-        if len(nums_in_res) > 0 :
-            num = int(nums_in_res[0]) 
-            log.append({'event' : 'voted' , 'content': {'player':i , 'voted_to_player':num , 'reason':res}})
-            votes[num]+=1
-            report.append(f"Player {i} Voted to {num}")
-            players[i]['votes_log'].append(f"Player {num}")
-    # Here will be a bug due to probablity of two or more maximum voted.
-    log.append({'event':'vote_results' , 'content' : votes})
-    log.append({'event':'vote_end'})
-    if max(votes) > 1 : 
-        dead_index = votes.index(max(votes))
-        kill(dead_index)
-        if game_end() == 1 : # to check if game is over by votes 
-            return
-    for i in alives_index : 
-        res = send_message(render_game_intro(i), render_game_report(i , report), render_notetaking_command(i))
-        log.append({'event' : 'notetaking' , 'content': {'player':i , 'context':res}})
-        players[i]['notes'] = (res)
-    memory = report
-    return
+        if nums_in_res == [] :
+            return (None, res)
+        return (int(nums_in_res[0]), res)
+    def vote(self, Game):
+        target, reason = self.targeting(
+            Game,
+            "Command: just send the number of the player that you want to vote for. You must not vote to yourself. if you don't want to vote anyone just send an empty response."
+        ) 
+        self.votes.append(target)
+        return (target, reason)
+        
 
-def night() :
-    report = memory
-    healed_guy = None
-    advice = ""
-    if players[roles.index('Medic')]['is_alive'] == True : 
-        res = send_message(render_game_intro(roles.index('Medic')), render_game_report(roles.index('Medic') , report) , "Command : send the number of player who you want to heal for tonight. REMINDER: you must send an alive player number")
-        healed_guy = int(re.findall(r'\d+', res)[0])
-        players[roles.index('Medic')]['special_actions_log'].append(f"You have healed Player number {healed_guy}")
-        log.append({'event' : 'healed' , 'content': {'player':healed_guy , 'reason':res}})
-    if players[roles.index('Seer')]['is_alive'] == True :     
-        res = send_message(render_game_intro(roles.index('Seer')), render_game_report(roles.index('Seer'), report) , "Command : send the number of player who you want to know that is werewolf or not for tonight. REMINDER: you must send an alive player number")
-        inq = int(re.findall(r'\d+', res)[0])
-        is_werewolf = 'Werewolf' in roles[inq]
-        players[roles.index('Seer')]['special_actions_log'].append(f"You asked moderator that Player {inq} is Werewolf or not. the answer was : {is_werewolf}")
-        players[roles.index('Seer')]['special_actions_log'].append(f"{inq} is Werewolf? : {is_werewolf}")
-        log.append({'event' : 'inquiried' , 'content': {'player':inq , 'context': is_werewolf , 'reason':res}})
-    if players[roles.index('Werewolf_leader')]['is_alive'] == 1 : 
-        now_leader = roles.index('Werewolf_leader')
-    else :
-        now_leader = roles.index('Werewolf_simple')  
-    if players[roles.index('Werewolf_simple')]['is_alive'] == True and now_leader == roles.index('Werewolf_leader') : 
-        advice = send_message(render_game_intro(roles.index('Werewolf_simple')), render_game_report(roles.index('Werewolf_simple') , report) , "Command : send a short advice to Werewolf_leader to which player for eliminating for tonight")
-        log.append({'event' : 'speech' , 'content': {'player': roles.index('Werewolf_simple'), 'context':advice}})
+class Villager(Player):
+    def __init__(self, role, **kwargs):
+        super().__init__(**kwargs)
+        self.role = role
+        self.type = "villager"
 
-    res = send_message(render_game_intro(now_leader), render_game_report(now_leader , report) , "Command : JUST send the number of player who you want to kill for tonight. REMINDER: you must send an alive player number and not yourteammate or yourself. also consider this advice : {advice}")
-    targeted_guy = int(re.findall(r'\d+', res)[0])
-    log.append({'event' : 'targeted' , 'content': {'player':targeted_guy , 'reason':res}})
-    players[now_leader]['special_actions_log'].append(f"You have attemped to kill Player number {targeted_guy} at night.")
-    if targeted_guy != healed_guy : 
-        kill(targeted_guy)
-    return
 
-# main game loop
+class Werewolf(Player):
+    def __init__(self , role, **kwargs):
+        super().__init__(**kwargs)
+        self.role = role
+        self.type = "werewolf"
+        self.rank = "normal" # it may change to leader
+    def killing(self, Game):
+        target, reason = self.targeting(
+            Game,
+            f"Command : JUST send the number of player who you want to kill for tonight. also consider this advices : {Game.werewolves_talks}"
+        )
+        if target:
+            Game.log_submit({'event' : 'targeted' , 'content': {'player':target , 'reason':reason}})
+            player = Game.get_player(target)
+            if Game.healed_guy is not player:
+                Game.kill(player)
+            self.special_actions_log.append(f'you attemped to kill player{target}')
+    def advicing(self, Game):
+        target, reason = self.targeting(
+            Game,
+            "Command : send a short advice on which player do you suppose for eliminating at tonight from villagers."
+        )
+        self.log_submit({'event' : 'speech' , 'content': {'player': self.id, 'context':reason}})
+        self.werewolves_talks.append(reason)
 
-while game_end() == 0 : 
-    log.append({'event' : 'cycle' , 'content':'day'})
-    day()
-    if game_end() != 0 : 
-        break
-    log.append({'event' : 'cycle' , 'content':'night'})
-    night()
+class Medic(Villager):
+    def __init__(self, role, **kwargs):
+        super().__init__(role, **kwargs)
+        self.type = "medic"
+
+    def healing(self, Game):
+        target, reason = self.targeting(
+            Game,
+            "Command : send the number of player who you want to heal for tonight."
+        )
+        if target:
+            Game.healed_guy = Game.get_player(target)
+            self.special_actions_log.append(f"You have healed Player number {target}")
+            Game.log_submit({'event' : 'healed' , 'content': {'player':target , 'reason':reason}})
+
+class Seer(Villager):
+    def __init__(self, role, **kwargs):
+        super().__init__(role, **kwargs)
+        self.type = "seer"
+
+    def inquiry(self, Game):
+        target, reason = self.targeting(
+            Game,
+            "Command : send the number of player who you want to know that is werewolf or not for tonight."
+        )
+        if target:
+            targeted_player = Game.get_player(target)
+            is_werewolf = targeted_player.type == "werewolf"
+            tag = "" if is_werewolf else "not"
+            self.special_actions_log.append(f" Player {target} is {tag} werewolf")
+            Game.log_submit({'event' : 'inquiried' , 'content': {'player':target , 'context': is_werewolf , 'reason':reason}})
+       
+        
+
+class Game():
+    def __init__(self, id=1):
+        self.id = id
+        self.alive_players = []
+        self.dead_players = []
+        self.report = []
+        self.votes = []
+        self.log = []
+        self.logger = self._configure_logger()
+    def _configure_logger(self):
+        logger = logging.getLogger(f"Game-{self.id}")
+        logger.setLevel(logging.DEBUG)
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.DEBUG)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)        
+        return logger
+    def log_submit(self, data):
+        self.log.append(data)
+        self.logger.info(data)
+    def set_players(self, simple_villagers_roles, werewolves_roles, medics_roles, seers_roles):
+        shuffled_roles = simple_villagers_roles + werewolves_roles + medics_roles + seers_roles
+        random.shuffle(shuffled_roles)
+        for i, player in enumerate(shuffled_roles) : 
+            if player in simple_villagers_roles :
+                self.alive_players.append(Villager(role=player, id=i))
+            elif player in werewolves_roles:
+                self.alive_players.append(Werewolf(role=player, id=i))
+            elif player in medics_roles:
+                self.alive_players.append(Medic(role=player, id=i))
+            elif player in seers_roles:
+                self.alive_players.append(Seer(role=player, id=i))
+            self.log_submit({'event' : 'roles', 'content':{'player':i , 'role':player}})
+        werewolves = self.get_alive_werewolves()
+        for werewolf in werewolves:
+            werewolf.special_actions_log.append(f"you are werewolf and this is your team (they are all werewolf) : {werewolves}")
+    def get_player(self, id):
+        return self.alive_players[id]
+    def get_alive_werewolves(self):
+        ls = list(filter(lambda player : player.type == "werewolf", self.alive_players))
+        # to make sure that last werewolf will make the last decision
+        ls[-1].rank = "leader"
+        return ls
+    def get_alive_medics(self):
+        return list(filter(lambda player : player.type == "medic", self.alive_players))
+    def get_alive_seers(self):
+        return list(filter(lambda player : player.type == "seer", self.alive_players))
+    def get_alive_villagers(self):
+        return list(filter(lambda player : player.type == "villager", self.alive_players))
+    def kill(self, Player):
+        self.alive_players.remove(Player)
+        self.dead_players.append(Player)
+        self.log_submit({'event' : 'killed' , 'content': {'player':Player.id}})
+        return
+
+    
+
+    def is_game_end(self):
+        """
+        Will check that the game is over or not.
+        """ 
+        werewolves, villagers = self.get_alive_werewolves(), self.get_alive_villagers()
+        if len(werewolves) == len(villagers) :
+            self.log_submit({'event':'end','winner':'Werewolves'})
+            return True
+        if werewolves == []: 
+            self.log_submit({'event':'end','winner':'Villagers'})
+            return True
+        return False 
+
+    def check_votes(self):
+        # [TODO] : debugging here
+        votes = self.votes[-1]
+        if max(votes.values()) > 1 : 
+            votes_sorted = sorted(votes.items(), key=lambda x:x[1])
+            self.kill(self.alive_players[votes_sorted[-1]])
+        if self.is_game_end(): # to check if game is over by votes 
+            self.save_game()
+        return
+
+
+    def run_day(self) :
+        self.report = [] 
+        for Player in self.alive_players :
+            res = send_message(render.game_intro(Player), render.game_report(self, Player) , render.speech_command()).replace('\n' , ' ')
+            self.report.append(str(Player) + "opinion : " + res)
+            self.log_submit({'event' : 'speech' , 'content': {'player':Player.id , 'context':res}})
+        votes = [0]*7
+        self.log_submit({'event':'vote_start'})
+        for Player in self.alive_players : 
+            target_voted, reason = Player.vote(self)
+            if target_voted :
+                self.log_submit({'event' : 'voted' , 'content': {'player':Player.id , 'voted_to_player':target_voted , 'reason':reason}})
+                votes[target_voted]+=1
+                self.report.append(f"{Player} Voted to {target_voted}")
+            else:
+                self.logger.warning(f"{Player} skipped the voting")
+        self.log_submit({'event':'vote_results' , 'content' : votes})
+        self.log_submit({'event':'vote_end'})
+        self.votes.append(list(enumerate(votes)))
+        self.check_votes()
+        for Player in self.alive_players : 
+            res = send_message(render.game_intro(Player), render.game_report(self, Player), render.notetaking_command())
+            self.log_submit({'event' : 'notetaking' , 'content': {'player':Player.id , 'context':res}})
+            Player.notes = res
+        return
+
+    def run_night(self) :
+        self.healed_guy = None
+        self.werewolves_talks = []
+        medics, seers, werewolves = self.get_alive_medics(), self.get_alive_seers(), self.get_alive_werewolves()
+        for medic in medics:
+            medic.healing(self)
+        for seer in seers:    
+            seer.inquiry(Game)
+        for werewolf in werewolves:
+            if werewolf.rank == "leader":
+                werewolf.killing(Game)
+            else:
+                werewolf.advicing(Game)
+        return
+
+
+    def run_game(self):
+        while True: 
+            self.log_submit({'event' : 'cycle' , 'content':'day'})
+            self.run_day()
+            if self.is_game_end() :
+                self.save_game()
+                return 
+            self.log_submit({'event' : 'cycle' , 'content':'night'})
+            self.run_night()
+            if self.is_game_end() :
+                self.save_game()
+                return
+    def save_game(self):
+        json.dump(self.log , open(f'records/game_{self.id}_log.json' , 'w') , indent=4)
+    
+        
+
+
+
+
+
 
 
 

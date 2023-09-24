@@ -6,8 +6,11 @@ MODEL = 'gpt-3.5-turbo'
 
 import openai, os, time
 
-# getting open ai api key from the evnironmental variables
+# this is for printing messages in terminal
+DEBUG = False
 
+
+# getting open ai api key from the evnironmental variables
 openai.api_key =  os.getenv("OPENAI_API_KEY")
 
 # make content in openai wanted format
@@ -32,16 +35,17 @@ def send_message(intro , game_report , command , token_limit=TOKEN_LIMIT , time_
         temperature=TEMPERATURE
     )
     # just for debugging in terminal
-    print(f"""
-          #######################
-          {intro}
-          #######################
-          {game_report}
-          #######################
-          {command}
-          #######################
-          -----------------------------
-          {response.choices[0].message["content"]}
-    """)
+    if DEBUG:
+        print(f"""
+            #######################
+            {intro}
+            #######################
+            {game_report}
+            #######################
+            {command}
+            #######################
+            -----------------------------
+            {response.choices[0].message["content"]}
+        """)
     # returning the response as a string
     return response.choices[0].message["content"]
