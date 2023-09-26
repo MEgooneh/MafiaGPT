@@ -1,6 +1,6 @@
-def game_intro(Player) : 
+def game_intro(Player):
     """
-    Rendering game intro (The first message in every request to api) 
+    Rendering game intro (The first message in every request to api)
     consisting of the rules and the player information
     """
     return f"""
@@ -31,16 +31,20 @@ game logics :
 YOUR information In the game : 
 YOU are player number : {Player.id}
 YOUR role is : {Player.role}"""
- 
-def game_report(Game, Player) :
+
+
+def game_report(Game, Player):
     """
-    Rendering game report (The second message in every request to api) 
+    Rendering game report (The second message in every request to api)
     consisting of game status and the player special informations and what happened in the game till now
-    
+
     """
     werewolves = Game.get_alive_werewolves()
     villagers = Game.get_alive_villagers()
-    aliveness = [str(Player) + " is " + ("ALIVE" if Player.is_alive else "DEAD") for Player in (Game.alive_players + Game.dead_players)] 
+    aliveness = [
+        str(Player) + " is " + ("ALIVE" if Player.is_alive else "DEAD")
+        for Player in (Game.alive_players + Game.dead_players)
+    ]
     dead_players = [str(Player) + "" for Player in Game.dead_players]
 
     return f"""This Round speeches till now :
@@ -60,18 +64,23 @@ YOU MUST CONSIDER this important details. They are 100% True and you can use the
 YOUR PREVIOUS NOTE for yourself : 
     - {Player.notes}
 ##############"""
+
+
 # a simple string to command player to speak
 
-def speech_command() : 
+
+def speech_command():
     return """ATTENTION : 
 !!! You MUST NOT REVEAL your exact role. you can claim that you are villager(lie or true) but for example you shouldn't say : "I'm Medic"
 !!! there's no needage to remind rules to others. just focus on your own game and don't repeat things.
 !!! don't use repeatitive phrases. add something to the game. be short and direct. also be somehow aggressive and start targetting.
 NOW IS YOUR TURN TO SPEAK TO ALIVE PLAYERS : """
 
+
 # a simple string to command player to take a note of the game
 
-def notetaking_command() : 
+
+def notetaking_command():
     return """
 Your notes as your memory and your strategy: 
 every player has a private notebook. in each round (day and night) you can update that notes for yourself to remember for next decisions. your notebook will be only your last update and it will override. so try to summarise previous notes in new one too.
@@ -79,5 +88,3 @@ every player has a private notebook. in each round (day and night) you can updat
     - if you have something previously in your notebook that is not usable anymore (e.g about targeting someone that is no more alive) ignore that note and don't add it to new update.
     - ONLY you can see your notes so you don't talk to others, just create your policies for next rounds. there is no needage to show your innocent. just fix your policy for yourself.
 NOW JUST SEND YOUR NEW VERSION OF NOTES : """
-
-
