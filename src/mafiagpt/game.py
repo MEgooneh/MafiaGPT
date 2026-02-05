@@ -5,6 +5,8 @@ import json
 import logging
 from pathlib import Path
 import random
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Iterable
 
 from mafiagpt.llm import OpenRouterClient
@@ -80,7 +82,7 @@ class Werewolf(Player):
             self.special_actions_log.append(f"you attempted to kill player {target}")
 
     def advicing(self, game: Game) -> None:
-        target, reason = self.targeting(
+        _target, reason = self.targeting(
             game,
             "Command: send a short advice on which player do you suppose for eliminating "
             "tonight from villagers.",
@@ -88,7 +90,7 @@ class Werewolf(Player):
         game.log_submit(
             {"event": "speech", "content": {"player": self.id, "context": reason}}
         )
-        game.werewolves_talks.append(reason)
+        game.add_werewolf_talk(reason)
 
 
 @dataclass
@@ -145,6 +147,7 @@ class Game:
         self.votes: list[dict[int, int]] = []
         self.log: list[dict[str, Any]] = []
         self.logger = self._configure_logger()
+        self._lock = threading.Lock()
         self.healed_guy: Player | None = None
         self.werewolves_talks: list[str] = []
 
@@ -162,8 +165,13 @@ class Game:
         return logger
 
     def log_submit(self, data: dict[str, Any]) -> None:
-        self.log.append(data)
-        self.logger.info(data)
+        with self._lock:
+            self.log.append(data)
+            self.logger.info(data)
+
+    def add_werewolf_talk(self, talk: str) -> None:
+        with self._lock:
+            self.werewolves_talks.append(talk)
 
     def set_players(
         self,
@@ -248,22 +256,32 @@ class Game:
 
     def run_day(self) -> None:
         self.report = []
-        for player in self.alive_players:
-            response = self.client.send_structured(
-                prompts.game_intro(player),
-                prompts.game_report(self, player),
-                prompts.speech_command(),
-            )
-            data = response.require_keys(["speech"])
-            speech = str(data["speech"]).replace("\n", " ")
+        with ThreadPoolExecutor() as executor:
+            futures = {
+                executor.submit(self._generate_speech, player): player
+                for player in self.alive_players
+            }
+            speeches = []
+            for future in as_completed(futures):
+                speeches.append(future.result())
+        for player_id, speech in sorted(speeches, key=lambda item: item[0]):
+            player = self.get_player(player_id)
             self.report.append(f"{player} opinion : {speech}")
             self.log_submit(
-                {"event": "speech", "content": {"player": player.id, "context": speech}}
+                {"event": "speech", "content": {"player": player_id, "context": speech}}
             )
         votes = [0] * len(self.all_players)
         self.log_submit({"event": "vote_start"})
-        for player in self.alive_players:
-            target_voted, reason = player.vote(self)
+        with ThreadPoolExecutor() as executor:
+            futures = {
+                executor.submit(self._collect_vote, player): player
+                for player in self.alive_players
+            }
+            vote_results = []
+            for future in as_completed(futures):
+                vote_results.append(future.result())
+        for player_id, target_voted, reason in sorted(vote_results, key=lambda item: item[0]):
+            player = self.get_player(player_id)
             if target_voted is not None:
                 self.log_submit(
                     {
@@ -283,14 +301,16 @@ class Game:
         self.log_submit({"event": "vote_end"})
         self.votes.append(dict(enumerate(votes)))
         self.check_votes()
-        for player in self.alive_players:
-            response = self.client.send_structured(
-                prompts.game_intro(player),
-                prompts.game_report(self, player),
-                prompts.notetaking_command(),
-            )
-            data = response.require_keys(["notes"])
-            notes = str(data["notes"])
+        with ThreadPoolExecutor() as executor:
+            futures = {
+                executor.submit(self._generate_notes, player): player
+                for player in self.alive_players
+            }
+            notes_results = []
+            for future in as_completed(futures):
+                notes_results.append(future.result())
+        for player_id, notes in sorted(notes_results, key=lambda item: item[0]):
+            player = self.get_player(player_id)
             self.log_submit(
                 {"event": "notetaking", "content": {"player": player.id, "context": notes}}
             )
@@ -299,15 +319,23 @@ class Game:
     def run_night(self) -> None:
         self.healed_guy = None
         self.werewolves_talks = []
-        for medic in self.get_alive_medics():
-            medic.healing(self)
-        for seer in self.get_alive_seers():
-            seer.inquiry(self)
-        for werewolf in self.get_alive_werewolves():
-            if werewolf.rank == "leader":
-                werewolf.killing(self)
-            else:
-                werewolf.advicing(self)
+        werewolves = self.get_alive_werewolves()
+        leader = next((werewolf for werewolf in werewolves if werewolf.rank == "leader"), None)
+        non_leaders = [werewolf for werewolf in werewolves if werewolf.rank != "leader"]
+
+        with ThreadPoolExecutor() as executor:
+            futures = []
+            for medic in self.get_alive_medics():
+                futures.append(executor.submit(medic.healing, self))
+            for seer in self.get_alive_seers():
+                futures.append(executor.submit(seer.inquiry, self))
+            for werewolf in non_leaders:
+                futures.append(executor.submit(werewolf.advicing, self))
+            for future in as_completed(futures):
+                future.result()
+
+        if leader:
+            leader.killing(self)
 
     def run_game(self) -> None:
         while True:
@@ -327,3 +355,27 @@ class Game:
         records_dir.mkdir(parents=True, exist_ok=True)
         output_path = records_dir / f"game_{self.id}_log.json"
         output_path.write_text(json.dumps(self.log, indent=4))
+
+    def _generate_speech(self, player: Player) -> tuple[int, str]:
+        response = self.client.send_structured(
+            prompts.game_intro(player),
+            prompts.game_report(self, player),
+            prompts.speech_command(),
+        )
+        data = response.require_keys(["speech"])
+        speech = str(data["speech"]).replace("\n", " ")
+        return player.id, speech
+
+    def _collect_vote(self, player: Player) -> tuple[int, int | None, str]:
+        target_voted, reason = player.vote(self)
+        return player.id, target_voted, reason
+
+    def _generate_notes(self, player: Player) -> tuple[int, str]:
+        response = self.client.send_structured(
+            prompts.game_intro(player),
+            prompts.game_report(self, player),
+            prompts.notetaking_command(),
+        )
+        data = response.require_keys(["notes"])
+        notes = str(data["notes"])
+        return player.id, notes
