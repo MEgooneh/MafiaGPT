@@ -13,16 +13,25 @@ text = ""
 
 
 def emojing_roles(role):
-    roles = ["Medic", "Seer", "Villager_simple", "Werewolf_leader", "Werewolf_simple"]
-    roles_emoji = ["🩺", "🔍", "👤", "😈", "😈"]
-    return role + roles_emoji[roles.index(role)]
+    role_map = {
+        "Medic": "🩺",
+        "medic": "🩺",
+        "Seer": "🔍",
+        "seer": "🔍",
+        "Villager_simple": "👤",
+        "simple_villager": "👤",
+        "Werewolf_leader": "😈",
+        "Werewolf_simple": "😈",
+        "werewolf": "😈",
+    }
+    return f"{role}{role_map.get(role, '')}"
 
 
 def results(votes):
     s = ""
-    for i in range(7):
-        if votes[i] > 0:
-            s += f"``` Player {i} : {'+' * votes[i]} ```"
+    for i, vote_count in enumerate(votes):
+        if vote_count > 0:
+            s += f"``` Player {i} : {'+' * vote_count} ```"
             s += "<br>"
     return s
 

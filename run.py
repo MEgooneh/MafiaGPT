@@ -1,5 +1,5 @@
-from core import game
+from mafiagpt.__main__ import main
 
-new = game.Game()
-new.set_players(["simple_villager"] * 3, ["werewolf"] * 2, ["medic"], ["seer"])
-new.run_game()
+
+if __name__ == "__main__":
+    main()

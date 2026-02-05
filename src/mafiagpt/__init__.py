@@ -1,0 +1,1 @@
+"""MafiaGPT package."""
