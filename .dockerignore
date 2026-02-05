@@ -1,0 +1,9 @@
+.git
+.github
+__pycache__
+.venv
+venv
+records
+assets
+docs
+log.json

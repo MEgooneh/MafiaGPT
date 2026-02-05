@@ -2,7 +2,7 @@
 
 <img src="https://github.com/MEgooneh/MafiaGPT/blob/master/assets/robotic%20werewol%200.jpg" style="width:40%">
 
-a program that moderate a [Mafia(Werewolf)](https://en.wikipedia.org/wiki/Mafia_(party_game)) game with 7 players between GPT models.
+a program that moderates a [Mafia (Werewolf)](https://en.wikipedia.org/wiki/Mafia_(party_game)) game with LLMs as the players.
 
 to see communication, team work and social/logical abilities of GPT model.(it is fun and educational)
 
@@ -15,20 +15,30 @@ the roles are :
 
 ## Get started
 
-install openai via pip : 
+### Local (uv + Python 3.12)
+
+1. Install [uv](https://github.com/astral-sh/uv) and Python 3.12.
+2. Create your environment variables (see `.env.example`):
+
 ```shell
-pip install openai
+export OPENROUTER_API_KEY=your_openrouter_api_key_here
 ```
 
-set your Openai API key as an enivronmental variable with key : OPENAI_API_KEY
+3. Install dependencies and run:
 
-- you can configure your model(Default is 'gpt-3.5-turbo') and your rate_limit and token_limit in api.py
-
-- make DEBUG=True in api.py if you want to see all messages passed to GPT model.
- 
 ```shell
-python run.py
+uv pip install -e .
+python -m mafiagpt
 ```
+
+### Docker
+
+```shell
+docker build -t mafiagpt .
+docker run --rm -e OPENROUTER_API_KEY=your_openrouter_api_key_here mafiagpt
+```
+
+Configuration is done via environment variables (see `.env.example`). The default model is `gpt5.2`, and the default OpenRouter base URL is `https://openrouter.ai/api/v1`.
 
 it will save a log file in the bellow format in records/ folder.
 
@@ -127,18 +137,17 @@ events are :
 ```
 
 ## Prompts
-- Game Introduction('/intro_prompt.txt') : rules and the role of the player
-- Game Reports('/report_prompt.txt) :
+- Game Introduction (`src/mafiagpt/prompts.py`) : rules and the role of the player
+- Game Reports (`src/mafiagpt/prompts.py`) :
     - Speeches in last round
     - Game status : alive players in seperation of the teams.
-    - Players status : alivness of players based on their number
-    - Agent previous SPEACIAL actions
-    - Agent previous VOTES
+    - Players status : aliveness of players based on their number
+    - Agent previous special actions
     - Notes that have taken by the agent
-- Commands('/game.py') :
+- Commands (`src/mafiagpt/prompts.py`) :
     - Speak command
     - Vote command
-    - targetting/healing/killing/inquiring command
+    - targeting/healing/killing/inquiring command
       
 
 ## Tasks  
